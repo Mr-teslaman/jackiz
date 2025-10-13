@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nyote — Long-Tail Keywords: Why They Matter for SEO</title>
+<meta name="description" content="Nyote — Learn why long-tail keywords matter, how to find them, and how to use them to attract qualified traffic and increase conversions." />
+<style>
+  :root{
+    --bg: rgba(53, 15, 221, 0.2);
+    --panel:#0f0d0d;
+    --accent1:#7c3aed; /* violet */
+    --accent2:#a3e635; /* lime */
+    --muted:#9aa3b2;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --maxw:1100px;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:
+      radial-gradient(600px 300px at 10% 10%, rgba(124,58,237,0.06), transparent 8%),
+      radial-gradient(500px 260px at 90% 80%, rgba(163,230,53,0.03), transparent 8%),
+      var(--bg);
+    color:#e6eef6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:28px 18px;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo{width:52px;height:52px;flex:0 0 52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:inline-grid;place-items:center;font-weight:800;color:#071126}
+  .brand .title{font-weight:700;font-size:20px}
+  nav{display:flex;gap:12px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;font-weight:600}
+  nav a.cta{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#071126;padding:10px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(124,58,237,0.12)}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center;margin-top:22px}
+  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);box-shadow:0 12px 40px rgba(2,6,23,0.6);backdrop-filter:blur(6px)}
+  h1{margin:0;font-size:34px;line-height:1.04}
+  p.lead{color:var(--muted);margin-top:10px;font-size:15px}
+
+  .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+  .chip{background:var(--glass);padding:10px;border-radius:10px;font-weight:600}
+
+  /* visual card */
+  .visual{border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 40px rgba(2,6,23,0.5);background:linear-gradient(180deg,#071026 0%, #08122a 100%);padding:20px}
+  .graph{height:260px;border-radius:12px;background:linear-gradient(180deg, rgba(163,230,53,0.03), rgba(124,58,237,0.02));display:flex;flex-direction:column;gap:10px;padding:12px}
+  .row{display:flex;align-items:center;gap:10px}
+  .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
+  .bar{height:12px;border-radius:8px;background:linear-gradient(90deg,var(--accent2),var(--accent1));flex:1;opacity:0.95;transform-origin:left;animation:grow 1.6s ease both}
+  @keyframes grow{from{transform:scaleX(0.05)}to{transform:scaleX(1)}}
+
+  .form{display:flex;gap:10px;margin-top:18px}
+  .form input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+  .form button{padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:700;cursor:pointer}
+
+  /* sections */
+  section{margin-top:38px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 8px 28px rgba(2,6,23,0.4)}
+  .card h3{margin:0 0 8px 0}
+  .muted{color:var(--muted);font-size:14px}
+
+  /* CTA */
+  .cta-strip{margin-top:28px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:20px;border-radius:12px;color:#071126;text-align:center;font-weight:700}
+
+  /* footer */
+  footer{margin-top:44px;padding:20px 0;color:var(--muted)}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .social{display:flex;gap:10px}
+  .social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--glass);color:inherit;text-decoration:none}
+
+  /* animation & reveal */
+  .reveal{opacity:0;transform:translateY(12px);transition:all 650ms cubic-bezier(.16,.84,.44,1)}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* responsive */
+  @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:620px){.grid-3{grid-template-columns:1fr}.nav-collapse{display:none}}
+  @media (prefers-reduced-motion:reduce){.form button,.visual .bar{animation:none}}
+  a:focus,button:focus,input:focus{outline:3px solid rgba(163,230,53,0.12);outline-offset:3px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="index.html" aria-label="Nyote home">
+        <div class="logo" aria-hidden="true">N</div>
+        <div>
+          <div class="title">Nyote</div>
+          <div class="muted" style="font-size:12px">Keyword Strategy</div>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation" class="nav-collapse">
+        <a href="#why" class="muted">Why LT Keywords</a>
+        <a href="#find" class="muted">How to Find</a>
+        <a href="#use" class="muted">How to Use</a>
+        <a href="#contact" class="cta">Get a Strategy</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <div class="hero">
+        <div class="panel reveal" data-r>
+          <h1>Long-Tail Keywords: Why They Matter for SEO</h1>
+          <p class="lead">Target specific user intent, attract qualified visitors, and increase conversion rates — long-tail keyword strategies are how modern SEO wins.</p>
+
+          <div class="features" role="list" aria-hidden="false">
+            <div class="chip">Lower competition</div>
+            <div class="chip">Higher intent</div>
+            <div class="chip">Better conversions</div>
+            <div class="chip">Content opportunities</div>
+          </div>
+
+          <form class="form" id="leadForm" aria-label="Request keyword insight">
+            <input type="email" id="email" placeholder="you@company.com" aria-label="Email address" required>
+            <button type="submit">Get a tip</button>
+          </form>
+        </div>
+
+        <aside class="visual reveal" data-r aria-hidden="true">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <div style="font-weight:800">Long-tail impact</div>
+            <div class="muted">Sample metrics</div>
+          </div>
+
+          <div class="graph" role="img" aria-label="Bar chart showing long-tail performance">
+            <div class="row"><div class="dot"></div><div class="bar" style="width:84%"></div></div>
+            <div class="row"><div class="dot"></div><div class="bar" style="width:62%"></div></div>
+            <div class="row"><div class="dot"></div><div class="bar" style="width:95%"></div></div>
+            <div class="row"><div class="dot"></div><div class="bar" style="width:48%"></div></div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button class="muted" onclick="scrollToId('use')">How to use</button>
+            <a class="cta" href="#contact">Hire Nyote</a>
+          </div>
+        </aside>
+      </div>
+
+      <section id="why" class="reveal" data-r>
+        <h2 style="color:var(--accent1);margin:0 0 12px 0">Why Long-Tail Keywords?</h2>
+        <p class="muted" style="max-width:900px">Long-tail phrases are longer, more specific search queries. They attract users later in the buying funnel who are ready to act. Focusing on these reduces competition and increases the likelihood of conversion.</p>
+      </section>
+
+      <section id="find" class="reveal" data-r>
+        <h2 style="color:var(--accent2);margin-bottom:14px">How to Find Them</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Use search suggestion</h3>
+            <div class="muted">Inspect Google Autocomplete and 'People also ask' for real user phrases.</div>
+          </div>
+          <div class="card">
+            <h3>Analyze competitor pages</h3>
+            <div class="muted">Look at landing pages that rank and extract long queries they target.</div>
+          </div>
+          <div class="card">
+            <h3>Leverage keyword tools</h3>
+            <div class="muted">Use Ahrefs, SEMrush or free tools to expand seed keywords into long-tail sets.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="use" class="reveal" data-r>
+        <h2 style="color:var(--accent1);margin-bottom:14px">How to Use Long-Tail Keywords</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Build cluster pages</h3>
+            <div class="muted">Create one authoritative pillar and supporting long-tail pages that link to it.</div>
+          </div>
+          <div class="card">
+            <h3>Match intent</h3>
+            <div class="muted">Ensure your content format (guide, review, product) matches the searcher's intent.</div>
+          </div>
+          <div class="card">
+            <h3>Optimize CTAs</h3>
+            <div class="muted">Use context-specific CTAs: a long-tail informational user may want a demo or download.</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-strip reveal" data-r>
+        Want Nyote to map long-tail opportunities for your site? <button style="margin-left:14px;padding:10px 14px;border-radius:10px;border:0;background:#071126;color:var(--accent2);font-weight:700;cursor:pointer" onclick="scrollToId('contact')">Request audit</button>
+      </div>
+
+      <section id="contact" class="reveal" data-r>
+        <h2 style="color:var(--accent2)">Get Started</h2>
+        <div class="panel" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <div style="flex:1;min-width:220px">
+            <h3 style="margin:0 0 8px 0">Free 10-term sample</h3>
+            <div class="muted">Enter your site and primary topic — we'll return a short long-tail sample (simulated).</div>
+          </div>
+          <form id="contactForm" style="display:flex;gap:10px;flex:1;min-width:260px">
+            <input type="text" id="site" placeholder="yourwebsite.com" aria-label="Website" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;flex:1">
+            <input type="text" id="topic" placeholder="primary topic" aria-label="Primary topic" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;flex:1">
+            <button type="submit" style="padding:12px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:700;cursor:pointer">Send</button>
+          </form>
+        </div>
+        <div id="contactMsg" class="muted" style="margin-top:12px"></div>
+      </section>
+
+      <footer>
+        <div class="foot-row">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="logo" style="width:44px;height:44px;border-radius:10px;display:grid;place-items:center">N</div>
+            <div>
+              <div style="font-weight:700">Nyote</div>
+              <div class="muted" style="font-size:13px">Long-tail & Keyword Strategy</div>
+            </div>
+          </div>
+
+          <div class="social" aria-label="Social links">
+            <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 7.5c-.5.2-1 .3-1.6.4.6-.4 1-1 1.2-1.8-.6.4-1.3.6-2 .8-.6-.6-1.3-1-2.1-1-1.6 0-2.7 1.7-2.4 3.2-2.1-.1-4-1.1-5.3-2.6-.7 1.2-.3 2.8 1 3.6-.5 0-1-.1-1.5-.4 0 1.5 1 3 2.6 3.3-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.5 3.3 2.6-1.3 1-2.9 1.6-4.6 1.6H6c1.6 1 3.4 1.6 5.3 1.6 6.3 0 9.8-5.3 9.8-9.8v-.4c.7-.5 1.2-1.2 1.6-2z"/></svg></a>
+            <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1c1.37 0 2.49 1.12 2.49 2.5zM.2 8.98H4.8V24H.2zM7.5 8.98h4.3v2.06h.1c.6-1.1 2.06-2.26 4.24-2.26 4.54 0 5.38 2.98 5.38 6.85V24h-4.6v-7.12c0-1.7 0-3.88-2.36-3.88-2.36 0-2.72 1.83-2.72 3.75V24H7.5z"/></svg></a>
+            <a href="https://wa.me/qr/73POYWZQQBUXC1" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">© Nyote <span id="yr"></span> · Turning keywords into customers</div>
+      </footer>
+    </main>
+  </div>
+
+<script>
+  // Simple progressive reveal
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(document.querySelectorAll('[data-r], .card, section, .cta-strip'));
+    function reveal(){
+      const top = window.innerHeight * 0.9;
+      els.forEach(el=>{
+        if(el.getBoundingClientRect().top <= top) el.classList.add('visible');
+      });
+    }
+    if(!prefersReduced){
+      reveal();
+      window.addEventListener('scroll', reveal, {passive:true});
+      window.addEventListener('resize', reveal);
+    } else {
+      els.forEach(e=>e.classList.add('visible'));
+    }
+  })();
+
+  // Lead form (simulated)
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    if(!email || !email.includes('@')){ alert('Please enter a valid email'); return; }
+    this.querySelector('button').textContent='Sending...';
+    setTimeout(()=>{ this.reset(); this.querySelector('button').textContent='Get a tip'; alert('Thanks — sample tips sent (simulated) to '+email); },900);
+  });
+
+  // Contact sample form
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const site = document.getElementById('site').value.trim();
+    const topic = document.getElementById('topic').value.trim();
+    const msg = document.getElementById('contactMsg');
+    if(!site || !topic){ msg.textContent='Please fill both fields.'; return; }
+    msg.textContent='Preparing your sample...';
+    setTimeout(()=>{ msg.textContent='Sample sent to your inbox (simulated).'; this.reset(); },1000);
+  });
+
+  // helper
+  function scrollToId(id){
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+
+  // set year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

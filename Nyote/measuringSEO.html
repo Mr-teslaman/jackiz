@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measuring SEO Success: Key Metrics to Track | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A90E2;
+            --accent: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gray: #718096;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(74, 144, 226, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .metrics-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .metrics-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--accent);
+        }
+
+        .yellow {
+            background-color: #FFD166;
+        }
+
+        .green {
+            background-color: #06D6A0;
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .metric-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .metric-info {
+            flex: 1;
+        }
+
+        .metric-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-title i {
+            color: var(--primary);
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .metric-change {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 20px;
+        }
+
+        .positive {
+            background-color: rgba(6, 214, 160, 0.1);
+            color: #06D6A0;
+        }
+
+        .negative {
+            background-color: rgba(255, 101, 132, 0.1);
+            color: var(--accent);
+        }
+
+        /* Metrics Section */
+        .metrics {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .metric-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .metric-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .metric-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .metric-importance {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Tracking Section */
+        .tracking {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+        }
+
+        .tracking-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .tracking-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .tracking-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tracking-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .tool-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .tracking-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .metric-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#metrics">Key Metrics</a>
+                <a href="#tracking">Tracking Guide</a>
+                <a href="#tools">Tools</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Measuring SEO Success: <span>Key Metrics to Track</span></h1>
+                <p>Discover the essential SEO metrics that matter and learn how to track them effectively to measure your website's performance and growth.</p>
+                <a href="#metrics" class="cta-button">Explore Key Metrics</a>
+            </div>
+            <div class="hero-visual">
+                <div class="metrics-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">SEO Performance Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="metric-row">
+                            <div class="metric-info">
+                                <div class="metric-title"><i class="fas fa-chart-line"></i> Organic Traffic</div>
+                                <div class="metric-value">12,458</div>
+                            </div>
+                            <div class="metric-change positive">+18.5%</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-info">
+                                <div class="metric-title"><i class="fas fa-search"></i> Keyword Rankings</div>
+                                <div class="metric-value">342</div>
+                            </div>
+                            <div class="metric-change positive">+24</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-info">
+                                <div class="metric-title"><i class="fas fa-mouse-pointer"></i> Click-Through Rate</div>
+                                <div class="metric-value">4.8%</div>
+                            </div>
+                            <div class="metric-change positive">+0.7%</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-info">
+                                <div class="metric-title"><i class="fas fa-bounce-rate"></i> Bounce Rate</div>
+                                <div class="metric-value">42.3%</div>
+                            </div>
+                            <div class="metric-change negative">-3.2%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics" id="metrics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Essential SEO Metrics to Track</h2>
+                <p>Focus on these key performance indicators to accurately measure your SEO success and identify areas for improvement</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Organic Traffic</h3>
+                    <p>The number of visitors coming to your site from search engines. This is the most fundamental SEO metric.</p>
+                    <div class="metric-importance">Critical</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Keyword Rankings</h3>
+                    <p>Your website's position in search results for target keywords. Track both rankings and ranking fluctuations.</p>
+                    <div class="metric-importance">High</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3>Click-Through Rate</h3>
+                    <p>The percentage of users who click on your search result after seeing it. Impacts both traffic and rankings.</p>
+                    <div class="metric-importance">High</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-bounce-rate"></i>
+                    </div>
+                    <h3>Bounce Rate</h3>
+                    <p>The percentage of visitors who leave after viewing only one page. Indicates content relevance and quality.</p>
+                    <div class="metric-importance">Medium</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time on Page</h3>
+                    <p>How long visitors stay on your pages. Longer times generally indicate more engaging, valuable content.</p>
+                    <div class="metric-importance">Medium</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Backlink Quality</h3>
+                    <p>The number and quality of websites linking to your content. A key Google ranking factor.</p>
+                    <div class="metric-importance">High</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section class="tracking" id="tracking">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Track SEO Metrics Effectively</h2>
+                <p>Follow this systematic approach to monitor, analyze, and optimize your SEO performance</p>
+            </div>
+            <div class="tracking-container">
+                <div class="tracking-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Set Up Analytics</h3>
+                        <p>Implement proper tracking tools to collect accurate data about your website's performance.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Install Google Analytics with enhanced tracking</li>
+                            <li><i class="fas fa-check"></i> Connect Google Search Console for search data</li>
+                            <li><i class="fas fa-check"></i> Set up goals and conversion tracking</li>
+                            <li><i class="fas fa-check"></i> Implement UTM parameters for campaign tracking</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Analytics Setup" class="step-image">
+                    </div>
+                </div>
+                <div class="tracking-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Establish Benchmarks</h3>
+                        <p>Determine your current performance levels to measure progress against meaningful targets.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Record current keyword rankings</li>
+                            <li><i class="fas fa-check"></i> Document current organic traffic levels</li>
+                            <li><i class="fas fa-check"></i> Note current conversion rates</li>
+                            <li><i class="fas fa-check"></i> Track current backlink profile</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Benchmarks" class="step-image">
+                    </div>
+                </div>
+                <div class="tracking-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Monitor & Analyze</h3>
+                        <p>Regularly review your SEO metrics to identify trends, opportunities, and areas needing improvement.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Weekly performance reviews</li>
+                            <li><i class="fas fa-check"></i> Monthly comprehensive reports</li>
+                            <li><i class="fas fa-check"></i> Competitor performance analysis</li>
+                            <li><i class="fas fa-check"></i> Identify correlation between activities and results</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Monitoring" class="step-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Essential SEO Tracking Tools</h2>
+                <p>Leverage these powerful tools to effectively monitor and analyze your SEO performance</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Google Analytics</h3>
+                    <p>Comprehensive website analytics for tracking traffic, behavior, and conversions.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Google Search Console</h3>
+                    <p>Monitor search performance, indexing status, and optimize visibility in search results.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    <h3>SEMrush</h3>
+                    <p>All-in-one SEO toolkit for ranking tracking, competitor analysis, and site audits.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Ahrefs</h3>
+                    <p>Powerful backlink analysis, keyword research, and competitive intelligence.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Screaming Frog</h3>
+                    <p>Website crawler for technical SEO audits and identifying site issues.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Google PageSpeed</h3>
+                    <p>Analyze and optimize website loading speed for better user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start Tracking Your SEO Success</h2>
+            <p>Implement these key metrics and tracking strategies to measure, analyze, and improve your website's search performance.</p>
+            <a href="#" class="cta-button-light">Get Tracking Guide</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Helping businesses measure and improve their SEO performance through data-driven insights and strategic tracking.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#metrics"><i class="fas fa-chevron-right"></i> Key Metrics</a></li>
+                        <li><a href="#tracking"><i class="fas fa-chevron-right"></i> Tracking Guide</a></li>
+                        <li><a href="#tools"><i class="fas fa-chevron-right"></i> Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>SEO Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="importanceSEO.html"><i class="fas fa-chevron-right"></i> SEO Metrics Guide</a></li>
+                        <li><a href=""><i class="fas fa-chevron-right"></i> Tracking Templates</a></li>
+                        <li><a href="googtleAnaly.html"><i class="fas fa-chevron-right"></i> Analytics Setup</a></li>
+                        <li><a href="writeSEOfriendly.html"><i class="fas fa-chevron-right"></i> Performance Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5"><i class="fas fa-map-marker-alt"></i> Bondo Street, kisumu City</a></li>
+                        <li><a href="https://wa.me/254769924070"><i class="fas fa-phone"></i> +254 (40100) 7699-240-70</a></li>
+                        <li><a href="index.html"><i class="fas fa-envelope"></i> info@nyote.com</a></li>
+                        <li><a href="routine.html"><i class="fas fa-clock"></i> Mon-Fri: 6AM - 8PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote. All rights reserved. | Measuring SEO Success</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tracking step animation on scroll
+            const steps = document.querySelectorAll('.tracking-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

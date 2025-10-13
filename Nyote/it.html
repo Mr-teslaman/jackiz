@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IT Support Kenya - Learn professional and beginner IT support practices by Nyote. Responsive, animated, and colorful design for all screens.">
+  <title>IT Support Kenya | Nyote</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; overflow-x: hidden; }
+    header { background: linear-gradient(135deg, #00b4d8, #90e0ef); color: #023e8a; text-align: center; padding: 3rem 1rem; animation: fadeIn 2s ease-in-out; }
+    header h1 { font-size: 2.5rem; letter-spacing: 2px; }
+    header p { font-size: 1.1rem; margin-top: .5rem; }
+    .logo { font-weight: bold; color: #03045e; }
+
+    section { padding: 3rem 1rem; text-align: center; transition: background 1s ease; }
+
+    #intro { background-color: #caf0f8; color: #03045e; }
+    #services { background-color: #ffd6a5; color: #6a040f; }
+    #tools { background-color: #caffbf; color: #1b4332; }
+    #training { background-color: #bdb2ff; color: #240046; }
+    #contact { background-color: #ffadad; color: #590d22; }
+
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    p { max-width: 800px; margin: 0 auto 1.5rem; }
+
+    footer { background-color: #f0efeb; color: #333; padding: 2rem 1rem; text-align: center; }
+    .social-icons a { margin: 0 10px; color: #0077b6; font-size: 1.5rem; text-decoration: none; transition: transform 0.3s; }
+    .social-icons a:hover { transform: scale(1.3); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Nyote</div>
+    <h1>IT Support Kenya</h1>
+    <p>Helping Beginners and Professionals Build Kenya’s Tech Backbone</p>
+  </header>
+
+  <section id="intro">
+    <h2>Introduction to IT Support in Kenya</h2>
+    <p>IT Support in Kenya involves maintaining, managing, and troubleshooting systems and networks that power our businesses and organizations. Whether you're starting or already in the field, this guide will help you understand how IT support works in Kenyan environments.</p>
+  </section>
+
+  <section id="services">
+    <h2>Core IT Support Services</h2>
+    <p>Typical IT services include network setup, user support, cybersecurity, data backup, and hardware maintenance. Kenyan companies rely on these services to keep operations running smoothly and securely.</p>
+  </section>
+
+  <section id="tools">
+    <h2>Essential Tools and Software</h2>
+    <p>From remote support software like AnyDesk and TeamViewer to management tools like Zendesk and Microsoft Admin Center, Kenyan IT support professionals use reliable tools to deliver excellent service.</p>
+  </section>
+
+  <section id="training">
+    <h2>Training and Certifications</h2>
+    <p>Build your skills through CompTIA A+, Cisco CCNA, and Google IT Support certifications. Many local institutions in Kenya offer IT training — including KCA University, Zetech, and Strathmore.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Community</h2>
+    <p>Join Kenya’s growing IT community. Collaborate, share solutions, and find job opportunities through networks like LinkedIn and local tech meetups.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Nyote | IT Support Kenya</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61577844734551" aria-label="Facebook">🌐</a>
+      <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08" aria-label="Twitter">🐦</a>
+      <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">💼</a>
+      <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg==" aria-label="Instagram">📸</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.style.opacity = 1;
+          section.style.transform = 'translateY(0)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

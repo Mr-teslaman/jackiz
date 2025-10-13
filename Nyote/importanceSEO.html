@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyote | The Importance of SEO Content Writing in Kenya</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fff8e1, #fce4ec);
+      color: #1b1b1b;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #006400, #b71c1c, #fbc02d);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 6%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: slideDown 1s ease;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 6rem 10%;
+      background: linear-gradient(160deg, #a5d6a7, #ffccbc);
+      color: #1b5e20;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #263238;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #b71c1c;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s, background 0.3s;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #2e7d32;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #006400;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(60px);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #b71c1c;
+    }
+
+    .card p {
+      color: #424242;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #006400;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .socials a {
+      color: white;
+      margin: 0 0.8rem;
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .socials a:hover {
+      color: #fbc02d;
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Nyote</div>
+    <nav>
+      <a href="#intro">Intro</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#kenya">Kenya Focus</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="intro">
+    <h1>The Importance of SEO Content Writing in Kenya</h1>
+    <p>Discover why SEO-focused content is the key to growing your business presence online in Kenya’s digital market — from visibility to conversions.</p>
+    <a href="#benefits" class="btn">Explore More</a>
+  </section>
+
+  <section id="benefits">
+    <h2>Why SEO Content Writing Matters</h2>
+    <div class="content-grid">
+      <div class="card">
+        <h3>1. Boosts Online Visibility</h3>
+        <p>High-quality SEO content helps your website rank on Google, making it easier for customers to find your products and services.</p>
+      </div>
+      <div class="card">
+        <h3>2. Builds Trust & Authority</h3>
+        <p>Regularly publishing optimized articles positions your business as a credible source of information in Kenya’s growing digital economy.</p>
+      </div>
+      <div class="card">
+        <h3>3. Increases Conversions</h3>
+        <p>SEO content not only attracts traffic but also converts visitors into loyal customers through engaging and relevant messaging.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kenya">
+    <h2>SEO Content in the Kenyan Market</h2>
+    <div class="content-grid">
+      <div class="card">
+        <h3>Localized Keywords</h3>
+        <p>Target search terms that Kenyans use daily — blending English and Kiswahili can help reach a broader audience.</p>
+      </div>
+      <div class="card">
+        <h3>Mobile Optimization</h3>
+        <p>With most Kenyans using mobile phones, SEO content should be mobile-friendly for better search ranking and user experience.</p>
+      </div>
+      <div class="card">
+        <h3>Engaging Storytelling</h3>
+        <p>Kenyans connect with stories — adding cultural relevance in your SEO writing can increase engagement and sharing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Partner with Nyote</h2>
+    <p style="text-align:center; max-width:600px; margin: 0 auto;">Want to take your content to the next level? Let Nyote help you craft SEO-optimized content that resonates with Kenyan audiences and ranks higher on Google.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nyote. All Rights Reserved.</p>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=61577844734551"><i class="fa fa-facebook"></i></a>
+      <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg=="><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    // Animate cards on scroll
+    const cards = document.querySelectorAll('.card');
+    const showCards = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) card.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', showCards);
+    showCards();
+  </script>
+</body>
+</html>

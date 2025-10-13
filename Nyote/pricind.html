@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent SEO Packages | Tera Crections</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 4rem 0;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgb(248, 249, 250);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            padding: 4rem 0;
+            background-color: #f0f9ff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: rgb(228, 225, 225);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .feature-name {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Plan Selection */
+        .plan-selection {
+            padding: 4rem 0;
+            background-color: #f0f9ff;
+            text-align: center;
+        }
+
+        .plan-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .plan-option {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .plan-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .pricing-section, .comparison-section, .faq-section, .plan-selection {
+                padding: 3rem 0;
+            }
+            
+            .pricing-card, .faq-item, .plan-option {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Tera Crections</div>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pricing">SEO Pricing</a></li>
+                <li><a href="#services">SEO Services</a></li>
+                <li><a href="#learn">Learn SEO</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Transparent SEO Packages by Tera Crections</h1>
+            <p>Choose a plan that matches your growth stage. No blackouts, no lock-ins. Every package includes clear deliverables, reporting, and support tailored to your business. Learn more about how much SEO costs in Kenya and our full SEO services.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2>SEO Packages</h2>
+            <div class="pricing-cards">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Starter SEO</h3>
+                        <p>Build authority with publishing fundamentals and KPIs</p>
+                        <div class="price">KES 75,000</div>
+                    </div>
+                    <ul class="features-list">
+                        <li>10+ SEO-Optimized Pages/month (1K-2K words)</li>
+                        <li>4 Service/Category Pages/month</li>
+                        <li>Regular Site Audits (technical & on-page fixes)</li>
+                        <li>Keyword Research & Mapping for all content</li>
+                        <li>Monthly SEO Performance Report</li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+
+                <!-- Growth Plan -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Growth SEO</h3>
+                        <p>Improve rankings with advanced content and strategy</p>
+                        <div class="price">KES 125,000</div>
+                    </div>
+                    <ul class="features-list">
+                        <li>15+ SEO-Optimized Pages/month (1K-2K words)</li>
+                        <li>8 Service/Category Pages/month</li>
+                        <li>Advanced Audits (tech + content gap analysis)</li>
+                        <li>Competitive Analysis & Topic Clusters</li>
+                        <li>Conversion-Focused Content & Minimal Listings</li>
+                        <li>Monthly Strategy Call & Action Plan</li>
+                    </ul>
+                    <a href="#" class="btn">Launch</a>
+                </div>
+
+                <!-- Dominance Plan -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Dominance SEO</h3>
+                        <p>Dominate your category with technical depth and authority</p>
+                        <div class="price">KES 185,000</div>
+                    </div>
+                    <ul class="features-list">
+                        <li>20+ SEO-Optimized Pages/month (1K-2K words)</li>
+                        <li>12-15 Service/Category Pages/month</li>
+                        <li>Authority Link Building (additional, relevant)</li>
+                        <li>Full Technical SEO Management (CWV/training)</li>
+                        <li>Dedicated SEO Manager (senior level)</li>
+                        <li>Quarterly Growth Projects & Benchmarks</li>
+                    </ul>
+                    <a href="#" class="btn">Launch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2>What's included in every plan</h2>
+            <p>Radiant transparency, Outcomes-driven delivery, Data-first decisions. Every plan includes strategy, implementation, and reporting.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="feature-name">Feature</th>
+                        <th>Starter</th>
+                        <th>Growth</th>
+                        <th>Dominance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Editorial Calendar & Keyword Map</td>
+                        <td>Monthly</td>
+                        <td>Monthly</td>
+                        <td>Monthly + Quarterly Proposal</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Reporting & Insights</td>
+                        <td>Monthly</td>
+                        <td>Monthly + Strategy Call</td>
+                        <td>Monthly + Executive Summary</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Technical SEO</td>
+                        <td>Regular site audit & fixes</td>
+                        <td>Advanced audits & CWV tracking</td>
+                        <td>Full technical ownership</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Links & Authority</td>
+                        <td>Opportunities monitoring & citations</td>
+                        <td>Authority link building</td>
+                        <td>Authority link building</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Do you require long-term contracts?</h3>
+                    <p>No, we offer flexible month-to-month plans with no lock-ins. You can cancel or change your plan at any time.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Who creates the content?</h3>
+                    <p>Our team of experienced content writers and SEO specialists create all the content for your website.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can you integrate with our CMS & analytics?</h3>
+                    <p>Yes, we can integrate with any CMS and analytics platform to ensure seamless tracking and reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan Selection Guide -->
+    <section class="plan-selection">
+        <div class="container">
+            <h2>Which plan should I choose?</h2>
+            <div class="plan-options">
+                <div class="plan-option">
+                    <h3>Starter</h3>
+                    <p>You need momentum fast: frequent publishing and fundamentals executed well.</p>
+                </div>
+                <div class="plan-option">
+                    <h3>Growth</h3>
+                    <p>You're ready for competitive keywords, content clusters, and conversion lifts.</p>
+                </div>
+                <div class="plan-option">
+                    <h3>Dominance</h3>
+                    <p>You want to earn your category with technical depth and authority building.</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem;">Not sure? <a href="#contact">Contact us</a> and we'll help you choose the right plan for your business.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tera Crections</h3>
+                    <ul class="footer-links">
+                        <li><a href="importanceSEO.html">SEO-only Sales-led strategy</a></li>
+                        <li><a href="pricind.html">Clear Pricing - no surprises</a></li>
+                        <li><a href="about founder.html">About the Agency</a></li>
+                        <li><a href="about founder.html">The Founder</a></li>
+                        <li><a href="blog.html">Blog & Articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>SEO Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="writeSEOfriendly.html">SEO Writting</a></li>
+                        <li><a href="googtleAnaly.html">Technical SEO</a></li>
+                        <li><a href="growthStre.html">On-Page SEO</a></li>
+                        <li><a href="oldContent.html">Old Content SEO</a></li>
+                        <li><a href="seoAgency.html">Link Building</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Learn SEO</h3>
+                    <ul class="footer-links">
+                        <li><a href="importanceSEO.html">Why SEO Matters</a></li>
+                        <li><a href="pricind.html">SEO Pricing</a></li>
+                        <li><a href="SEOcommon mistakes.html">SEO Common Mistakes</a></li>
+                        <li><a href="SEOgoogle.html">Google SEO Guide</a></li>
+                        <li><a href="localseo.html">Local SEO in Kenya</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="mission.html">Mission & Values</a></li>
+                        <li><a href="pricind.html">Hire SEO Agency</a></li>
+                        <li><a href="seoAgency.html">SEO Agency Kenya</a></li>
+                        <li><a href="https://wa.me/254769924070">Contact</a></li>
+                        <li><a href="contact.html">Request SEO Audit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Tera Crections, all rights reserved.</p>
+                <p>Dominate Your Category - Search and SEO Services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/254769924070" class="whatsapp-btn" target="_blank">💬</a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

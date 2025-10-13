@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management Kenya | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #2E86AB;
+            --secondary: #A23B72;
+            --accent: #F18F01;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(46, 134, 171, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0e6ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(46, 134, 171, 0.1) 0%, rgba(162, 59, 114, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(46, 134, 171, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(46, 134, 171, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .data-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .data-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--secondary);
+        }
+
+        .yellow {
+            background-color: var(--accent);
+        }
+
+        .green {
+            background-color: #2ECC71;
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .data-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .data-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .data-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-title i {
+            color: var(--primary);
+        }
+
+        .data-desc {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(46, 134, 171, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Kenya Data Section */
+        .kenya-data {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .kenya-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .data-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .data-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .data-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(46, 134, 171, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .solution-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .solution-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .industries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .industry-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .industry-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .industry-card p {
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .data-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .industries-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#kenya">Kenya Data</a>
+                <a href="#solutions">Solutions</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Data Management <span>Solutions Kenya</span></h1>
+                <p>Transform your business with comprehensive data management solutions tailored for the Kenyan market. Secure, scalable, and compliant data handling for modern enterprises.</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+            <div class="hero-visual">
+                <div class="data-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">Data Management Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="data-item">
+                            <div class="data-title"><i class="fas fa-database"></i> Data Collection</div>
+                            <div class="data-desc">Structured data gathering from multiple sources across Kenya with real-time processing.</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-title"><i class="fas fa-shield-alt"></i> Security & Compliance</div>
+                            <div class="data-desc">Full compliance with Kenya's Data Protection Act and international security standards.</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-title"><i class="fas fa-chart-line"></i> Analytics & Insights</div>
+                            <div class="data-desc">Advanced analytics providing actionable insights for Kenyan market trends.</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-title"><i class="fas fa-cloud"></i> Cloud Solutions</div>
+                            <div class="data-desc">Secure cloud storage and processing optimized for Kenyan internet infrastructure.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Data Management Services</h2>
+                <p>Comprehensive data solutions designed specifically for Kenyan businesses and organizations</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Collection & Integration</h3>
+                    <p>Structured data gathering from multiple sources including mobile platforms, IoT devices, and traditional systems across Kenya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Data Security & Compliance</h3>
+                    <p>Full compliance with Kenya's Data Protection Act, GDPR, and implementation of robust security protocols.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Business Intelligence</h3>
+                    <p>Advanced analytics and reporting tools tailored for Kenyan market insights and business decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Cloud Migration</h3>
+                    <p>Seamless transition to secure cloud platforms with local data centers for optimal performance in Kenya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Implementation of AI-driven data processing and predictive analytics for Kenyan business scenarios.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Data Governance</h3>
+                    <p>Comprehensive data management frameworks, policies, and procedures for Kenyan regulatory compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenya Data Section -->
+    <section class="kenya-data" id="kenya">
+        <div class="container">
+            <div class="section-title">
+                <h2>Data Management in Kenya</h2>
+                <p>Understanding the unique data landscape and opportunities in the Kenyan market</p>
+            </div>
+            <div class="kenya-container">
+                <div class="data-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Kenya's Digital Transformation</h3>
+                        <p>Kenya is leading East Africa in digital adoption, creating massive opportunities for data-driven businesses.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Over 90% internet penetration in urban areas</li>
+                            <li><i class="fas fa-check"></i> Mobile money adoption exceeding 80% of adults</li>
+                            <li><i class="fas fa-check"></i> Growing tech startup ecosystem in Nairobi</li>
+                            <li><i class="fas fa-check"></i> Government digital initiatives (Huduma, eCitizen)</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Data Protection Act Compliance</h3>
+                        <p>Understanding and implementing Kenya's Data Protection Act requirements for businesses.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Data processing principles and lawful basis</li>
+                            <li><i class="fas fa-check"></i> Data subject rights and consent management</li>
+                            <li><i class="fas fa-check"></i> Data protection impact assessments</li>
+                            <li><i class="fas fa-check"></i> Cross-border data transfer regulations</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Local Infrastructure Solutions</h3>
+                        <p>Leveraging Kenya's improving digital infrastructure for optimal data management performance.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Local data center partnerships</li>
+                            <li><i class="fas fa-check"></i> Mobile-first data strategies</li>
+                            <li><i class="fas fa-check"></i> Bandwidth optimization for local networks</li>
+                            <li><i class="fas fa-check"></i> Hybrid cloud solutions for reliability</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--accent), var(--primary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Data Solutions</h2>
+                <p>Tailored data management solutions for different business needs in Kenya</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Enterprise Data Warehousing</h3>
+                    <p>Centralized data storage and management for large Kenyan enterprises with multiple data sources.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Retail Analytics</h3>
+                    <p>Customer behavior analysis and inventory optimization for retail businesses across Kenya.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Financial Data Management</h3>
+                    <p>Secure financial data processing and compliance for banks and financial institutions.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare Data Systems</h3>
+                    <p>Patient data management and medical records systems for healthcare providers.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education Data Platforms</h3>
+                    <p>Student information systems and learning analytics for educational institutions.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Supply Chain Analytics</h3>
+                    <p>Logistics and supply chain optimization through data-driven insights and tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <p>Data management solutions tailored for key sectors in the Kenyan economy</p>
+            </div>
+            <div class="industries-container">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Banking & Finance</h3>
+                    <p>Secure data management for financial transactions, customer data, and regulatory compliance.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Customer analytics, inventory management, and sales data optimization.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Patient records, medical data, and healthcare analytics for improved service delivery.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>Student data management, learning analytics, and institutional research.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Agriculture</h3>
+                    <p>Farm data, supply chain tracking, and market analysis for agribusiness.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Energy & Utilities</h3>
+                    <p>Smart grid data, consumption analytics, and utility management systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Data Management?</h2>
+            <p>Let's work together to implement secure, compliant, and efficient data solutions for your Kenyan business.</p>
+            <a href="#" class="cta-button-light">Start Your Data Journey</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Leading data management solutions provider in Kenya, helping businesses harness the power of their data while ensuring security, compliance, and optimal performance.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#kenya"><i class="fas fa-chevron-right"></i> Kenya Data</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Collection</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Security</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Business Intelligence</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cloud Migration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +254 700 123 456</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@nyote.co.ke</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM EAT</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote Data Management Kenya. All rights reserved. | Secure • Compliant • Efficient Data Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data step animation on scroll
+            const steps = document.querySelectorAll('.data-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

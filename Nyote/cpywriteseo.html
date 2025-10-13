@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Copywriting: Turning Content into Conversion | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e6eeff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .content-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--primary);
+        }
+
+        .yellow {
+            background-color: var(--accent);
+        }
+
+        .green {
+            background-color: var(--secondary);
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .content-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .content-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .content-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-title i {
+            color: var(--primary);
+        }
+
+        .content-desc {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .process-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .process-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .process-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .benefit-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#process">Our Process</a>
+                <a href="#services">Services</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>SEO Copywriting: Turning <span>Content into Conversion</span></h1>
+                <p>Transform your website content into a powerful conversion machine with our data-driven SEO copywriting strategies that rank higher and convert better.</p>
+                <a href="#process" class="cta-button">Discover Our Process</a>
+            </div>
+            <div class="hero-visual">
+                <div class="content-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">Content Conversion Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="content-item">
+                            <div class="content-title"><i class="fas fa-search"></i> Keyword Optimization</div>
+                            <div class="content-desc">Strategic placement of high-intent keywords to attract qualified traffic.</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-title"><i class="fas fa-mouse-pointer"></i> CTAs That Convert</div>
+                            <div class="content-desc">Compelling calls-to-action designed to guide users through the conversion funnel.</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-title"><i class="fas fa-chart-line"></i> Performance Tracking</div>
+                            <div class="content-desc">Monitor engagement metrics and conversion rates to continuously optimize.</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-title"><i class="fas fa-users"></i> Audience-Focused Content</div>
+                            <div class="content-desc">Content tailored to your target audience's needs, questions, and pain points.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why SEO Copywriting Matters</h2>
+                <p>Powerful content that ranks well and converts even better - that's the magic of strategic SEO copywriting</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Higher Search Rankings</h3>
+                    <p>Our optimized content helps you rank for valuable keywords, driving qualified organic traffic to your site.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Increased Conversions</h3>
+                    <p>Strategic copywriting turns visitors into customers with compelling calls-to-action and persuasive messaging.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <h3>Better User Engagement</h3>
+                    <p>Content that answers questions and solves problems keeps users on your site longer, reducing bounce rates.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Enhanced Brand Authority</h3>
+                    <p>High-quality, valuable content establishes your brand as an industry leader and builds trust with your audience.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Data-Driven Optimization</h3>
+                    <p>We use analytics to continuously refine your content strategy based on real performance data.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Long-Term Results</h3>
+                    <p>Unlike paid ads, quality SEO content continues to drive traffic and conversions for months or years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Conversion-Focused Process</h2>
+                <p>We follow a proven methodology to create SEO-optimized content that drives results</p>
+            </div>
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Discovery & Strategy</h3>
+                        <p>We begin by deeply understanding your business, audience, and goals to create a tailored content strategy.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Comprehensive audience research</li>
+                            <li><i class="fas fa-check"></i> Competitive analysis</li>
+                            <li><i class="fas fa-check"></i> Keyword mapping and strategy</li>
+                            <li><i class="fas fa-check"></i> Content gap analysis</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Discovery & Strategy" class="step-image">
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Content Creation</h3>
+                        <p>Our expert copywriters craft compelling, SEO-optimized content designed to rank and convert.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> SEO-optimized article writing</li>
+                            <li><i class="fas fa-check"></i> Persuasive landing pages</li>
+                            <li><i class="fas fa-check"></i> Engaging blog content</li>
+                            <li><i class="fas fa-check"></i> Compelling product descriptions</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Content Creation" class="step-image">
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Optimization & Testing</h3>
+                        <p>We continuously optimize content based on performance data and A/B test elements for maximum conversion.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> On-page SEO optimization</li>
+                            <li><i class="fas fa-check"></i> A/B testing of CTAs and headlines</li>
+                            <li><i class="fas fa-check"></i> Conversion rate optimization</li>
+                            <li><i class="fas fa-check"></i> Performance tracking and analysis</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Optimization & Testing" class="step-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Transform Your Content?</h2>
+            <p>Let's work together to create SEO-optimized copy that ranks higher, engages your audience, and drives conversions.</p>
+            <a href="#" class="cta-button-light">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Transforming content into conversions through data-driven SEO copywriting strategies that deliver measurable results.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577844734551" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#benefits"><i class="fas fa-chevron-right"></i> Benefits</a></li>
+                        <li><a href="#process"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="keywordClustering.html"><i class="fas fa-chevron-right"></i> SEO Content Writing</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Landing Page Copy</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog Content Strategy</a></li>
+                        <li><a href="conveOPT.html"><i class="fas fa-chevron-right"></i> Conversion Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5"><i class="fas fa-map-marker-alt"></i> 123 Content Street, Kisumu City</a></li>
+                        <li><a href="https://wa.me/qr/73POYWZQQBUXC1"><i class="fas fa-phone"></i> +254 - 769 - 6240 - 70</a></li>
+                        <li><a href="index.html"><i class="fas fa-envelope"></i> info@nyote.com</a></li>
+                        <li><a href="routine.html"><i class="fas fa-clock"></i> Mon-Fri: 6AM - 8PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote. All rights reserved. | Turning Content into Conversion</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Process step animation on scroll
+            const steps = document.querySelectorAll('.process-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

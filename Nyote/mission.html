@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission, Vision & Values | Nyote Creations</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+            --accent: #f59e0b;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 3rem 0;
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 3rem 0;
+            background-color: #f8fafc;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .value-card h3:before {
+            content: "•";
+            color: var(--accent);
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Slogan & USP Section */
+        .slogan-usp {
+            padding: 3rem 0;
+        }
+
+        .slogan {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .usp-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .usp-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .usp-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            padding: 3rem 0;
+            background-color: #f8fafc;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 3rem 0;
+        }
+
+        .process-steps {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+        }
+
+        /* Metrics & Client Section */
+        .metrics-client-section {
+            padding: 3rem 0;
+            background-color: #f8fafc;
+        }
+
+        .metrics-client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metrics-card, .client-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .metrics-list, .client-list {
+            list-style: none;
+        }
+
+        .metrics-list li, .client-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .metrics-list li:before, .client-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Non-Negotiable Section */
+        .non-negotiable-section {
+            padding: 3rem 0;
+        }
+
+        .non-negotiable-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 4px solid #ef4444;
+        }
+
+        .non-negotiable-list {
+            list-style: none;
+        }
+
+        .non-negotiable-list li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .non-negotiable-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-about {
+            max-width: 300px;
+        }
+
+        .footer-about p {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .mission-vision, .values-section, .slogan-usp, .goals-section, 
+            .process-section, .metrics-client-section, .non-negotiable-section {
+                padding: 2rem 0;
+            }
+            
+            .slogan {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .mission-vision-grid, .values-grid, .usp-container, .metrics-client-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-about {
+                max-width: 100%;
+            }
+            
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">TERA.</div>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">SEO Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#mission">Mission & Values</a></li>
+                <li><a href="#blog">Blog & Articles</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Mission, Vision & Values</h1>
+            <p>Our guiding principles for delivering exceptional SEO results</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision" id="mission">
+        <div class="container">
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <h2>Mission</h2>
+                    <p>Make great businesses understand on Google—turning high-level searches into customers with endless, compounding SEO.</p>
+                </div>
+                <div class="vision-card">
+                    <h2>Vision</h2>
+                    <p>See African SEO category leader—the team boards out share growth, and the measurable, affordable, and fast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Outcome Over Activity</h3>
+                    <p>Rankings are worthy. Revenue is the point.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Robust Transparency</h3>
+                    <p>One scope, one price, no sugar-coating.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Ownership Mentality</h3>
+                    <p>We treat your business like it's our own.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Speed with Sense</h3>
+                    <p>Move fast, don't break trust.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Clarity Over Complexity</h3>
+                    <p>Choose SEO to test their future generals.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Data First, Ego Last</h3>
+                    <p>Lost in the next two decks.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Long-Term Play</h3>
+                    <p>Compounding beats campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slogan & USP Section -->
+    <section class="slogan-usp">
+        <div class="container">
+            <div class="slogan">Own Your Category.</div>
+            
+            <div class="usp-container">
+                <div class="usp-card">
+                    <h3>Unique Selling Point (USP)</h3>
+                    <p>SEO-only. No distractions. Senior-led strategy, technical depth, content that ranks, and the acquisition that actually earn us already.</p>
+                </div>
+                <div class="usp-card">
+                    <h3>Brand Promise</h3>
+                    <p>No hidden fees. Clear inputs — clear outputs. But it always shows what we did, why it matters, and what's real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section">
+        <div class="container">
+            <h2>Future Goals</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>12 Months</h3>
+                        <p>Secure market share for 20+ client categories in Kenya, publish a public SEO Benchmark Kenya report.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>24 Months</h3>
+                        <p>Expand to 5 African markets, launch Tera Academy to train 5,000 practitioners.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>36 Months</h3>
+                        <p>Recognized as Africa's go-to SEO authority—leaders in data across enterprise, B2B, and e-commerce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2>Our Process (Our Playbook)</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discover</h3>
+                        <p>Deep-dive into technical, content, intent, and competitor analysis.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Prioritize</h3>
+                        <p>Focus on revenue pages first. Scale key ingredients.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Structure</h3>
+                        <p>Build structured data from keywords on chart and is turned back.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Publish</h3>
+                        <p>Money pages, supporting clusters, and FAQs that actually rank.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Build Authority</h3>
+                        <p>Digital PR, partnerships, and editorial links work.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Optimize</h3>
+                        <p>SEO over the range, CTR, UX, schema, and space.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Report</h3>
+                        <p>Monthly growth report with clear insights, no jargon.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h3>Compound</h3>
+                        <p>Scale what works, fix what doesn't. Repeat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics & Client Section -->
+    <section class="metrics-client-section">
+        <div class="container">
+            <div class="metrics-client-grid">
+                <div class="metrics-card">
+                    <h2>Metrics That Matter</h2>
+                    <ul class="metrics-list">
+                        <li>Qualified traffic (not just visits)</li>
+                        <li>Ranking & share of voice for key terms</li>
+                        <li>Leads & revenue influenced from SEO</li>
+                        <li>CTR & conversion rate on priority pages</li>
+                        <li>Lifetime value vs. CAC payback from SEO</li>
+                    </ul>
+                </div>
+                <div class="client-card">
+                    <h2>Ideal Client Fit</h2>
+                    <ul class="client-list">
+                        <li>B2B services, SaaS, or e-commerce with clear revenue paths</li>
+                        <li>Willing to build a real service, we contribute promptly</li>
+                        <li>Ready to invest for 4-12 months to compound results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-Negotiable Section -->
+    <section class="non-negotiable-section">
+        <div class="container">
+            <h2>Non-Negotiable (What We Don't Do)</h2>
+            <div class="non-negotiable-card">
+                <ul class="non-negotiable-list">
+                    <li>"Magic buttons," black hat shortcuts, or content farms</li>
+                    <li>"Spammy tactics," like keyword stuffing or link schemes</li>
+                    <li>Set-and-forget SEO. If we're in, we're active</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>Tera Creations</h3>
+                    <p>SEO-only, Senior-led strategy. Clear inputs — clear outputs.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about founder.html">About the Agency</a></li>
+                        <li><a href="mission.html">The Founder</a></li>
+                        <li><a href="blog.html">Blogs & Articles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>SEO Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="googtleAnaly.html">SEO Analytics</a></li>
+                        <li><a href="cpywriteseo.html">Technical SEO</a></li>
+                        <li><a href="importanceSEO.html">On-Page SEO</a></li>
+                        <li><a href="oldContent.html">Old Content SEO</a></li>
+                        <li><a href="SEOgoogle.html">SEO Google</a></li>
+                        <li><a href="localseo.html">Local SEO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Learn SEO</h3>
+                    <ul class="footer-links">
+                        <li><a href="importanceSEO.html">Why SEO Matters</a></li>
+                        <li><a href="pricind.html">SEO Pricing</a></li>
+                        <li><a href="seoAgency.html">SEO Agency</a></li>
+                        <li><a href="SEOcommon mistakes.html">SEO Mistakes</a></li>
+                        <li><a href="localseo.html">Local SEO in Kenya</a></li>
+                        <li><a href="keywordClustering.html">Request SEO Keywords</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="mission.html">Mission & Values</a></li>
+                        <li><a href="localseo.html">Best SEO Agency</a></li>
+                        <li><a href="seoAgency.html">SEO Agency Kenya</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Tera Creations. All rights reserved.</p>
+                <p>Own Your Category – Senior-led SEO for Africa.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Services Kenya | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #3498DB;
+            --secondary: #9B59B6;
+            --accent: #2ECC71;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0e6ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cloud-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .cloud-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--secondary);
+        }
+
+        .yellow {
+            background-color: #F1C40F;
+        }
+
+        .green {
+            background-color: var(--accent);
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .cloud-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .cloud-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cloud-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cloud-title i {
+            color: var(--primary);
+        }
+
+        .cloud-desc {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Kenya Cloud Section */
+        .kenya-cloud {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .kenya-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .cloud-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .cloud-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cloud-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .solution-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .solution-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .pricing-period {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--accent);
+        }
+
+        .pricing-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .pricing-button.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .pricing-button.outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .cloud-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#kenya">Kenya Cloud</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Cloud Services <span>Kenya</span></h1>
+                <p>Scalable, secure, and reliable cloud solutions tailored for Kenyan businesses. Accelerate your digital transformation with our local cloud infrastructure.</p>
+                <a href="contact.html" class="cta-button">Explore Cloud Services</a>
+            </div>
+            <div class="hero-visual">
+                <div class="cloud-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">Cloud Services Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="cloud-item">
+                            <div class="cloud-title"><i class="fas fa-server"></i> Infrastructure</div>
+                            <div class="cloud-desc">Scalable cloud infrastructure with local data centers for optimal performance in Kenya.</div>
+                        </div>
+                        <div class="cloud-item">
+                            <div class="cloud-title"><i class="fas fa-shield-alt"></i> Security</div>
+                            <div class="cloud-desc">Enterprise-grade security with compliance to Kenya's Data Protection Act.</div>
+                        </div>
+                        <div class="cloud-item">
+                            <div class="cloud-title"><i class="fas fa-bolt"></i> Performance</div>
+                            <div class="cloud-desc">High-performance computing with low latency for Kenyan internet infrastructure.</div>
+                        </div>
+                        <div class="cloud-item">
+                            <div class="cloud-title"><i class="fas fa-hand-holding-usd"></i> Cost-Effective</div>
+                            <div class="cloud-desc">Competitive pricing with pay-as-you-go models suitable for Kenyan businesses.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Cloud Services</h2>
+                <p>Comprehensive cloud solutions designed specifically for Kenyan businesses and organizations</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Infrastructure as a Service</h3>
+                    <p>Scalable virtual servers, storage, and networking infrastructure with local data centers in Kenya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Platform as a Service</h3>
+                    <p>Complete development and deployment platforms for building cloud-native applications in Kenya.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Software as a Service</h3>
+                    <p>Ready-to-use business applications accessible from anywhere with Kenyan data sovereignty.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Services</h3>
+                    <p>Managed database solutions with automated backups, scaling, and high availability for Kenyan workloads.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cloud Security</h3>
+                    <p>Comprehensive security services including DDoS protection, encryption, and compliance monitoring.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Disaster Recovery</h3>
+                    <p>Automated backup and recovery solutions ensuring business continuity for Kenyan enterprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenya Cloud Section -->
+    <section class="kenya-cloud" id="kenya">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cloud Computing in Kenya</h2>
+                <p>Understanding the unique cloud landscape and opportunities in the Kenyan market</p>
+            </div>
+            <div class="kenya-container">
+                <div class="cloud-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Kenya's Cloud Readiness</h3>
+                        <p>Kenya's improving digital infrastructure makes it ideal for cloud adoption across various sectors.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Growing fiber optic network coverage</li>
+                            <li><i class="fas fa-check"></i> Increasing mobile internet penetration</li>
+                            <li><i class="fas fa-check"></i> Government digital transformation initiatives</li>
+                            <li><i class="fas fa-check"></i> Rising tech talent pool in cloud technologies</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cloud-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Data Sovereignty & Compliance</h3>
+                        <p>Local cloud solutions ensure compliance with Kenya's Data Protection Act and data residency requirements.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Data stored within Kenyan borders</li>
+                            <li><i class="fas fa-check"></i> Compliance with Data Protection Act</li>
+                            <li><i class="fas fa-check"></i> Reduced latency for local users</li>
+                            <li><i class="fas fa-check"></i> Support for local regulatory requirements</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cloud-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Cost Optimization</h3>
+                        <p>Local cloud infrastructure reduces costs associated with international bandwidth and currency fluctuations.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Reduced international bandwidth costs</li>
+                            <li><i class="fas fa-check"></i> Pricing in Kenyan Shillings</li>
+                            <li><i class="fas fa-check"></i> Local support and maintenance</li>
+                            <li><i class="fas fa-check"></i> Customized solutions for Kenyan market</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--accent), var(--primary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industry Solutions</h2>
+                <p>Tailored cloud solutions for different sectors in the Kenyan economy</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>Secure cloud banking, payment processing, and financial analytics compliant with Kenyan regulations.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>HIPAA-compliant medical records, telemedicine platforms, and healthcare data analytics.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>E-learning platforms, student management systems, and virtual classroom solutions for Kenyan institutions.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Scalable e-commerce platforms, inventory management, and customer analytics for Kenyan retailers.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Agriculture</h3>
+                    <p>Farm management systems, supply chain tracking, and agricultural data analytics for Kenyan agribusiness.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics</h3>
+                    <p>Fleet management, route optimization, and supply chain visibility solutions for Kenyan logistics companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cloud Pricing Plans</h2>
+                <p>Flexible pricing options designed for Kenyan businesses of all sizes</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Startup</div>
+                        <div class="pricing-price">KSh 5,999</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 2 vCPU Cores</li>
+                        <li><i class="fas fa-check"></i> 4GB RAM</li>
+                        <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> 1TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Basic Support</li>
+                    </ul>
+                    <a href="https://wa.me/254769924070" class="pricing-button outline">Chat On WhatsApp</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <div class="pricing-name">Business</div>
+                        <div class="pricing-price">KSh 14,999</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 4 vCPU Cores</li>
+                        <li><i class="fas fa-check"></i> 8GB RAM</li>
+                        <li><i class="fas fa-check"></i> 200GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Automated Backups</li>
+                    </ul>
+                    <a href="https://wa.me/254769924070" class="pricing-button">Chat ON WhatsAppa>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Enterprise</div>
+                        <div class="pricing-price">KSh 39,999</div>
+                        <div class="pricing-period">per month</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 8 vCPU Cores</li>
+                        <li><i class="fas fa-check"></i> 16GB RAM</li>
+                        <li><i class="fas fa-check"></i> 500GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> 10TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> 24/7 Premium Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Security</li>
+                        <li><i class="fas fa-check"></i> SLA Guarantee</li>
+                    </ul>
+                    <a href="https://wa.me/254769924070" class="pricing-button outline">Chat On WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start Your Cloud Journey Today</h2>
+            <p>Join hundreds of Kenyan businesses that have transformed their operations with our secure and scalable cloud solutions.</p>
+            <a href="#" class="cta-button-light">Migrate to Cloud</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Leading cloud services provider in Kenya, offering secure, scalable, and cost-effective cloud solutions tailored for the Kenyan market with local data centers and support.</p>
+                    <div class="social-links">
+                        <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577844734551" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#kenya"><i class="fas fa-chevron-right"></i> Kenya Cloud</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Cloud Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="webdevelopment.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="webhosting.html"><i class="fas fa-chevron-right"></i> Web Hosting</a></li>
+                        <li><a href="ads.html"><i class="fas fa-chevron-right"></i> Digital Ads</a></li>
+                        <li><a href="growthStre.html"><i class="fas fa-chevron-right"></i> Growth Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5"><i class="fas fa-map-marker-alt"></i> KisumuKenya</a></li>
+                        <li><a href="https://wa.me/254769924070"><i class="fas fa-phone"></i> +254 769 924 070</a></li>
+                        <li><a href="cloud.html"><i class="fas fa-envelope"></i> cloud@nyote.co.ke</a></li>
+                        <li><a href="routine.html"><i class="fas fa-clock"></i> 24/7 Support Available</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote Cloud Services Kenya. All rights reserved. | Secure • Scalable • Kenyan Cloud Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cloud step animation on scroll
+            const steps = document.querySelectorAll('.cloud-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

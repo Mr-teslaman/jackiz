@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyote | How to Write SEO-Friendly Blog Posts</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fefefe, #f3f7ff);
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #1e3a8a, #fb7185);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 6%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: slideDown 1s ease;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fde68a;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 6rem 10%;
+      background: linear-gradient(160deg, #bfdbfe, #fecdd3);
+      color: #1e3a8a;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #374151;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background: #1e3a8a;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s, background 0.3s;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #fb7185;
+    }
+
+    /* SECTION */
+    section {
+      padding: 4rem 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(60px);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #fb7185;
+    }
+
+    .card p {
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .socials a {
+      color: white;
+      margin: 0 0.8rem;
+      font-size: 1.6rem;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .socials a:hover {
+      color: #fb7185;
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Nyote</div>
+    <nav>
+      <a href="#intro">Intro</a>
+      <a href="#steps">Steps</a>
+      <a href="#tips">Tips</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="intro">
+    <h1>How to Write SEO-Friendly Blog Posts</h1>
+    <p>Learn how to create blog content that both readers and search engines love — structured, optimized, and ready to rank high on Google.</p>
+    <a href="#steps" class="btn">Start Learning</a>
+  </section>
+
+  <section id="steps">
+    <h2>Essential Steps</h2>
+    <div class="content-grid">
+      <div class="card">
+        <h3>1. Research Keywords</h3>
+        <p>Find the right keywords that match your readers’ intent. Use tools like Google Keyword Planner or Ahrefs.</p>
+      </div>
+      <div class="card">
+        <h3>2. Craft Engaging Titles</h3>
+        <p>Make sure your title includes your primary keyword and promises value or curiosity to attract clicks.</p>
+      </div>
+      <div class="card">
+        <h3>3. Structure Your Post</h3>
+        <p>Use headings (H1, H2, H3), bullet points, and short paragraphs to make your post easy to read and crawl.</p>
+      </div>
+      <div class="card">
+        <h3>4. Optimize Media</h3>
+        <p>Add alt text to images and compress files for faster load times — both help with SEO ranking factors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2>Extra Tips for SEO Success</h2>
+    <div class="content-grid">
+      <div class="card">
+        <h3>Link Internally</h3>
+        <p>Connect new blog posts with old ones using contextual internal links. It helps Google understand your site structure.</p>
+      </div>
+      <div class="card">
+        <h3>Write for People, Not Robots</h3>
+        <p>Keep your tone natural and engaging. Focus on solving readers’ problems, not just stuffing keywords.</p>
+      </div>
+      <div class="card">
+        <h3>Promote on Socials</h3>
+        <p>Share your posts across platforms to boost traffic and earn backlinks naturally.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Work with Nyote</h2>
+    <p style="text-align:center; max-width:600px; margin: 0 auto;">Need help creating SEO-optimized content for your brand? Let Nyote craft blog posts that rank and convert.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="index.html" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nyote. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=61577844734551"><i class="fa fa-facebook"></i></a>
+      <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg=="><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    // Animate cards when they appear in view
+    const cards = document.querySelectorAll('.card');
+    const showCards = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) card.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', showCards);
+    showCards();
+  </script>
+</body>
+</html>

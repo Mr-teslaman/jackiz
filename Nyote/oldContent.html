@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyote | How to Optimize Old Content for Better Rankings</title>
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #1c1c1c;
+      background: linear-gradient(135deg, #e8f5e9, #fffde7);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background: linear-gradient(90deg, #388e3c, #fbc02d);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #263238;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      text-align: center;
+      padding: 6rem 10%;
+      background: linear-gradient(160deg, #a5d6a7, #fff9c4);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #1b5e20;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #424242;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.8rem;
+      background: #fbc02d;
+      color: #1b5e20;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 4rem 10%;
+    }
+
+    section h2 {
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .content-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #1b5e20;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      background: #2e7d32;
+      color: white;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .socials a {
+      margin: 0 0.8rem;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+      color: #fbc02d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Nyote</div>
+    <nav>
+      <a href="#intro">Intro</a>
+      <a href="#steps">Steps</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="intro">
+    <h1>How to Optimize Old Content for Better Rankings</h1>
+    <p>Refreshing your existing pages can boost visibility, relevance, and user engagement. Learn how to turn outdated content into high-ranking assets.</p>
+    <a href="#steps" class="btn">Learn How</a>
+  </section>
+
+  <section id="steps">
+    <h2>Steps to Revitalize Your Content</h2>
+    <div class="content-grid">
+      <div class="card"><h3>1. Audit Your Content</h3><p>Identify which articles or pages have potential by checking traffic, backlinks, and keyword rankings.</p></div>
+      <div class="card"><h3>2. Update Information</h3><p>Replace outdated facts, numbers, or screenshots with current data to keep your readers engaged.</p></div>
+      <div class="card"><h3>3. Improve Readability</h3><p>Break up long paragraphs, add bullet points, and improve formatting for easier scanning.</p></div>
+      <div class="card"><h3>4. Add Keywords Naturally</h3><p>Include relevant new keywords that match search intent without overstuffing.</p></div>
+      <div class="card"><h3>5. Refresh Visuals</h3><p>Use new images, infographics, or internal links to enhance the look and navigation.</p></div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <h2>Why It Matters</h2>
+    <div class="content-grid">
+      <div class="card"><h3>Boost Rankings</h3><p>Google rewards freshness and relevance — updated content ranks faster and higher.</p></div>
+      <div class="card"><h3>Increase Engagement</h3><p>Visitors stay longer on well-presented, updated content, improving dwell time and reducing bounce rate.</p></div>
+      <div class="card"><h3>Enhance Conversions</h3><p>Fresh, optimized content builds more trust and leads to higher conversions.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s Work Together</h2>
+    <p style="text-align:center; max-width:600px; margin: 0 auto;">Want to refresh your website content for better SEO performance? Contact Nyote today to start optimizing for success.</p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="https://wa.me/qr/73POYWZQQBUXC1" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nyote. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=61577844734551"><i class="fa fa-facebook"></i></a>
+      <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg=="><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    // Reveal animation on scroll
+    const cards = document.querySelectorAll('.card');
+    const reveal = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
+</body>
+</html>

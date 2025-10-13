@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Content Mistakes That Hurt SEO | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e6eeff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .content-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--primary);
+        }
+
+        .yellow {
+            background-color: var(--accent);
+        }
+
+        .green {
+            background-color: var(--secondary);
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .mistake-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .mistake-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .mistake-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mistake-title i {
+            color: var(--primary);
+        }
+
+        .mistake-desc {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Mistakes Section */
+        .mistakes {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .mistake-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .mistake-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .mistake-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .mistake-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+
+        .mistake-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .mistake-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .mistake-severity {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .solutions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .solution-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .solution-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .solution-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Checklist Section */
+        .checklist {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .checklist-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .checklist-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checklist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .checklist-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .checklist-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .checklist-items {
+            list-style: none;
+        }
+
+        .checklist-items li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checklist-items li i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .solution-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .mistake-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .mistakes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .checklist-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#mistakes">Common Mistakes</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#checklist">Checklist</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Common Content Mistakes <span>That Hurt SEO</span></h1>
+                <p>Discover the most frequent content errors that damage your search rankings and learn how to fix them for better visibility and traffic.</p>
+                <a href="#mistakes" class="cta-button">Explore Mistakes</a>
+            </div>
+            <div class="hero-visual">
+                <div class="content-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">Content Mistakes Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="mistake-item">
+                            <div class="mistake-title"><i class="fas fa-exclamation-triangle"></i> Thin Content</div>
+                            <div class="mistake-desc">Pages with insufficient content that fail to provide value to users.</div>
+                        </div>
+                        <div class="mistake-item">
+                            <div class="mistake-title"><i class="fas fa-copy"></i> Duplicate Content</div>
+                            <div class="mistake-desc">Multiple pages with identical or very similar content confusing search engines.</div>
+                        </div>
+                        <div class="mistake-item">
+                            <div class="mistake-title"><i class="fas fa-font"></i> Keyword Stuffing</div>
+                            <div class="mistake-desc">Overusing keywords unnaturally, making content difficult to read.</div>
+                        </div>
+                        <div class="mistake-item">
+                            <div class="mistake-title"><i class="fas fa-user"></i> Poor User Experience</div>
+                            <div class="mistake-desc">Content that doesn't meet user needs or is difficult to navigate.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mistakes Section -->
+    <section class="mistakes" id="mistakes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Common Content Mistakes</h2>
+                <p>These content errors can significantly damage your SEO performance and search visibility</p>
+            </div>
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Thin Content</h3>
+                    <p>Pages with insufficient, low-quality content that fails to provide value or answer user queries effectively.</p>
+                    <div class="mistake-severity">High Impact</div>
+                </div>
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <h3>Duplicate Content</h3>
+                    <p>Multiple pages with identical or very similar content that confuses search engines and dilutes ranking potential.</p>
+                    <div class="mistake-severity">High Impact</div>
+                </div>
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3>Keyword Stuffing</h3>
+                    <p>Overusing keywords unnaturally, making content difficult to read and triggering search engine penalties.</p>
+                    <div class="mistake-severity">Medium Impact</div>
+                </div>
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Poor User Experience</h3>
+                    <p>Content that doesn't meet user needs, has poor readability, or is difficult to navigate and consume.</p>
+                    <div class="mistake-severity">High Impact</div>
+                </div>
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Broken Internal Links</h3>
+                    <p>Internal links that lead to 404 pages, disrupting user journey and wasting crawl budget.</p>
+                    <div class="mistake-severity">Medium Impact</div>
+                </div>
+                <div class="mistake-card">
+                    <div class="mistake-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Unoptimized Images</h3>
+                    <p>Large image files without proper compression, alt text, or descriptive filenames slowing down pages.</p>
+                    <div class="mistake-severity">Medium Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Fix Content Mistakes</h2>
+                <p>Practical solutions to correct common content errors and improve your SEO performance</p>
+            </div>
+            <div class="solutions-container">
+                <div class="solution-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Enhance Thin Content</h3>
+                        <p>Transform low-value pages into comprehensive resources that truly serve user needs.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Add detailed explanations and examples</li>
+                            <li><i class="fas fa-check"></i> Include relevant statistics and data</li>
+                            <li><i class="fas fa-check"></i> Add multimedia elements (images, videos)</li>
+                            <li><i class="fas fa-check"></i> Expand with practical tips and actionable advice</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Enhance Content" class="step-image">
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Eliminate Duplicate Content</h3>
+                        <p>Resolve content duplication issues to prevent ranking dilution and confusion.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Use canonical tags for similar pages</li>
+                            <li><i class="fas fa-check"></i> Combine similar pages into comprehensive guides</li>
+                            <li><i class="fas fa-check"></i> Implement 301 redirects when necessary</li>
+                            <li><i class="fas fa-check"></i> Use parameter handling in Google Search Console</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Eliminate Duplicates" class="step-image">
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Optimize for Users & Search Engines</h3>
+                        <p>Create content that satisfies both human readers and search engine algorithms.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Write naturally with keywords in context</li>
+                            <li><i class="fas fa-check"></i> Use descriptive headings and subheadings</li>
+                            <li><i class="fas fa-check"></i> Optimize for featured snippets with clear answers</li>
+                            <li><i class="fas fa-check"></i> Improve readability with short paragraphs and bullet points</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Optimization" class="step-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="checklist" id="checklist">
+        <div class="container">
+            <div class="section-title">
+                <h2>Content Quality Checklist</h2>
+                <p>Use this checklist to ensure your content is optimized for both users and search engines</p>
+            </div>
+            <div class="checklist-container">
+                <div class="checklist-card">
+                    <div class="checklist-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Fundamentals</h3>
+                    <ul class="checklist-items">
+                        <li><i class="fas fa-check"></i> Target keyword included naturally</li>
+                        <li><i class="fas fa-check"></i> SEO title tag optimized (50-60 chars)</li>
+                        <li><i class="fas fa-check"></i> Meta description compelling (120-160 chars)</li>
+                        <li><i class="fas fa-check"></i> URL structure clean and descriptive</li>
+                        <li><i class="fas fa-check"></i> Header tags used properly (H1, H2, H3)</li>
+                    </ul>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>User Experience</h3>
+                    <ul class="checklist-items">
+                        <li><i class="fas fa-check"></i> Content answers user query completely</li>
+                        <li><i class="fas fa-check"></i> Readable font size and good contrast</li>
+                        <li><i class="fas fa-check"></i> Short paragraphs and clear sections</li>
+                        <li><i class="fas fa-check"></i> Internal links to related content</li>
+                        <li><i class="fas fa-check"></i> Mobile-responsive design</li>
+                    </ul>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Technical Elements</h3>
+                    <ul class="checklist-items">
+                        <li><i class="fas fa-check"></i> Images optimized with alt text</li>
+                        <li><i class="fas fa-check"></i> Page loads quickly (under 3 seconds)</li>
+                        <li><i class="fas fa-check"></i> No broken links or 404 errors</li>
+                        <li><i class="fas fa-check"></i> Schema markup implemented where relevant</li>
+                        <li><i class="fas fa-check"></i> SSL certificate active</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Improve Your Content SEO Today</h2>
+            <p>Start implementing these fixes to eliminate common content mistakes and boost your search rankings.</p>
+            <a href="#" class="cta-button-light">Get Content Audit Guide</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Helping businesses identify and fix content mistakes that hurt SEO performance and search visibility.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#mistakes"><i class="fas fa-chevron-right"></i> Common Mistakes</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+                        <li><a href="#checklist"><i class="fas fa-chevron-right"></i> Checklist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>SEO Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="importanceSEO.html"><i class="fas fa-chevron-right"></i> Content Audit Guide</a></li>
+                        <li><a href="writeSEOfriendly.html"><i class="fas fa-chevron-right"></i> SEO Best Practices</a></li>
+                        <li><a href="localseo.html"><i class="fas fa-chevron-right"></i> Technical SEO Checklist</a></li>
+                        <li><a href="keywordClustering.html"><i class="fas fa-chevron-right"></i> Keyword Research Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5"><i class="fas fa-map-marker-alt"></i> 123 Content Street, SEO City</a></li>
+                        <li><a href="https://wa.me/qr/73POYWZQQBUXC1"><i class="fas fa-phone"></i> +254-6992-4070</a></li>
+                        <li><a href="index.html"><i class="fas fa-envelope"></i> info@nyote.com</a></li>
+                        <li><a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote. All rights reserved. | Fixing Content Mistakes</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solution step animation on scroll
+            const steps = document.querySelectorAll('.solution-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

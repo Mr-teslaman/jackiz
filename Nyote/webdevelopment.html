@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyote — Web Development: From Beginner to Professional</title>
+<style>
+  /* ========== RESET ========== */
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Poppins", sans-serif;
+    background:#096aca;
+    color:#222;
+    overflow-x:hidden;
+  }
+
+  :root{
+    --primary:#007bff;
+    --accent:#ff8c00;
+    --dark:#0b132b;
+    --light:#f4f3f7;
+    --gray:#1423ee;
+  }
+
+  /* ========== HEADER ========== */
+  header{
+    background:var(--dark);
+    color:var(--light);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.2rem 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+  }
+  .logo{
+    font-size:1.8rem;
+    font-weight:700;
+    color:var(--accent);
+  }
+  nav a{
+    color:var(--light);
+    text-decoration:none;
+    margin-left:1.5rem;
+    font-weight:500;
+    transition:color 0.3s;
+  }
+  nav a:hover{
+    color:var(--primary);
+  }
+
+  /* ========== HERO ========== */
+  .hero{
+    background:linear-gradient(135deg, var(--primary), var(--accent));
+    color:var(--light);
+    text-align:center;
+    padding:5rem 2rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero h1{
+    font-size:2.8rem;
+    animation:slideUp 1s ease forwards;
+  }
+  .hero p{
+    margin-top:1rem;
+    font-size:1.1rem;
+    max-width:700px;
+    opacity:0;
+    animation:fadeIn 1.3s 0.6s forwards;
+  }
+  .btn{
+    background:var(--light);
+    color:var(--dark);
+    padding:0.8rem 1.8rem;
+    border:none;
+    border-radius:40px;
+    margin-top:1.8rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 6px 10px rgba(0,0,0,0.25);
+  }
+
+  /* ========== SECTIONS ========== */
+  section{
+    padding:4rem 10%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+  }
+  section.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  section:nth-child(even){
+    background:var(--gray);
+  }
+  h2{
+    text-align:center;
+    color:var(--primary);
+    font-size:2rem;
+    margin-bottom:1rem;
+  }
+  .content{
+    max-width:900px;
+    margin:0 auto;
+    text-align:center;
+    font-size:1.05rem;
+    line-height:1.7;
+  }
+
+  /* ========== CARDS ========== */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .card{
+    background:var(--light);
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    padding:1.5rem;
+    transition:transform 0.3s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+  }
+  .card h3{
+    color:var(--accent);
+    margin-bottom:0.8rem;
+  }
+
+  /* ========== CTA ========== */
+  .cta{
+    background:linear-gradient(90deg, var(--primary), var(--accent));
+    color:var(--light);
+    text-align:center;
+    padding:3rem 1rem;
+  }
+  .cta h3{
+    font-size:2rem;
+    margin-bottom:1rem;
+  }
+  .cta button{
+    background:var(--light);
+    color:var(--dark);
+    border:none;
+    border-radius:40px;
+    padding:0.8rem 1.8rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .cta button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 10px rgba(0,0,0,0.25);
+  }
+
+  /* ========== FOOTER ========== */
+  footer{
+    background:var(--dark);
+    color:var(--light);
+    text-align:center;
+    padding:2rem 5%;
+  }
+  .social-icons{
+    margin-top:1rem;
+  }
+  .social-icons a{
+    color:var(--light);
+    margin:0 0.7rem;
+    text-decoration:none;
+    font-size:1.4rem;
+    display:inline-block;
+    transition:transform 0.3s, color 0.3s;
+  }
+  .social-icons a:hover{
+    color:var(--accent);
+    transform:scale(1.2);
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes slideUp{
+    from{transform:translateY(50px);opacity:0;}
+    to{transform:translateY(0);opacity:1;}
+  }
+  @keyframes fadeIn{
+    to{opacity:1;}
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media(max-width:768px){
+    .hero h1{font-size:2rem;}
+    nav a{margin-left:1rem;}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Nyote</div>
+    <nav>
+      <a href="#beginner">Beginner</a>
+      <a href="#professional">Professional</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Web Development: From Beginner to Professional</h1>
+    <p>Learn everything from basic HTML and CSS to full-stack development — with Nyote guiding you step by step toward building your own professional websites and applications.</p>
+    <button class="btn" onclick="alert('Welcome to Nyote Web Development!')">Start Learning</button>
+  </section>
+
+  <section id="beginner">
+    <h2>Web Development for Beginners</h2>
+    <div class="content">
+      <p>If you’re just starting out, focus on the building blocks: HTML for structure, CSS for styling, and JavaScript for interactivity. These are the foundation of every website.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>HTML Basics</h3>
+        <p>Learn how to create and structure web pages using HTML tags and elements.</p>
+      </div>
+      <div class="card">
+        <h3>CSS Styling</h3>
+        <p>Use CSS to make your pages visually appealing with colors, layouts, and animations.</p>
+      </div>
+      <div class="card">
+        <h3>JavaScript Essentials</h3>
+        <p>Bring your sites to life by adding dynamic behavior and interactivity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="professional">
+    <h2>Advanced Techniques for Professionals</h2>
+    <div class="content">
+      <p>Once you’ve mastered the basics, step into professional development with frameworks, backend integration, and performance optimization. This is where your skills turn into a career.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Frameworks</h3>
+        <p>Use libraries like React, Angular, or Vue to build scalable applications efficiently.</p>
+      </div>
+      <div class="card">
+        <h3>Backend Development</h3>
+        <p>Learn server-side languages like PHP, Python, or Node.js to power your web apps.</p>
+      </div>
+      <div class="card">
+        <h3>Deployment</h3>
+        <p>Host your website using cloud platforms like Netlify, Vercel, or AWS with CI/CD tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2>Essential Tools</h2>
+    <div class="content">
+      <p>Whether beginner or professional, these tools make your workflow efficient and modern.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Code Editors</h3>
+        <p>Visual Studio Code, Sublime Text, or Atom are excellent choices for any developer.</p>
+      </div>
+      <div class="card">
+        <h3>Version Control</h3>
+        <p>Learn Git and GitHub to manage and collaborate on projects seamlessly.</p>
+      </div>
+      <div class="card">
+        <h3>Design Tools</h3>
+        <p>Tools like Figma and Adobe XD help you design before coding.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <h3>Start Your Web Development Journey Today</h3>
+    <p>Join Nyote’s learning hub and grow from a beginner to a full professional developer.</p><br>
+    <button onclick="alert('Thank you for connecting with Nyote!')">Join Now</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Nyote — All Rights Reserved</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61577844734551"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    // Reveal animation on scroll
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>

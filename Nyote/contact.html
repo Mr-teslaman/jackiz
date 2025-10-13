@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Nyote Creations</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --border-color: #bdc3c7;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .form-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-header {
+            margin-bottom: 25px;
+        }
+        
+        .contact-header h1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .required {
+            color: var(--accent-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 25px 0;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .radio-item input {
+            margin-right: 8px;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .info-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .info-section p {
+            margin-bottom: 20px;
+        }
+        
+        .contact-methods {
+            margin-bottom: 25px;
+        }
+        
+        .contact-method {
+            margin-bottom: 15px;
+        }
+        
+        .contact-method h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .contact-method p {
+            margin-bottom: 5px;
+        }
+        
+        .whatsapp-link {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .whatsapp-link:hover {
+            background-color: #128C7E;
+        }
+        
+        .visit-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .visit-link:hover {
+            text-decoration: underline;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            margin-bottom: 25px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .next-step {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .next-step h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .form-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .form-section, .info-section {
+                margin-bottom: 0;
+            }
+            
+            .checkbox-group, .radio-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .checkbox-group {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message" id="successMessage">
+            Thank you for contacting Nyote Creations! We've received your information and will get back to you soon.
+        </div>
+        
+        <div class="form-container">
+            <div class="form-section">
+                <div class="contact-header">
+                    <h1>Contact Tera Creations today</h1>
+                </div>
+                
+                <form id="contactForm" action="submit_form.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Work Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company / Brand</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Website URLs</label>
+                        <input type="text" id="website" name="website">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location (City, Country)</label>
+                        <input type="text" id="location" name="location">
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <h2 class="section-title">Services</h2>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service1" name="services[]" value="SEO Audit">
+                                <label for="service1">SEO Audit</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service2" name="services[]" value="Technical SEO">
+                                <label for="service2">Technical SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service3" name="services[]" value="On-Page SEO">
+                                <label for="service3">On-Page SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service4" name="services[]" value="Content SEO">
+                                <label for="service4">Content SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service5" name="services[]" value="Link Building">
+                                <label for="service5">Link Building</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service6" name="services[]" value="Local SEO">
+                                <label for="service6">Local SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="service7" name="services[]" value="Not sure - guide me">
+                                <label for="service7">Not sure - guide me</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <h2 class="section-title">Budget</h2>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="budget1" name="budget" value="Below KES 50k">
+                                <label for="budget1">Below KES 50k</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="budget2" name="budget" value="KES 50k-150k">
+                                <label for="budget2">KES 50k-150k</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="budget3" name="budget" value="KES 150k-300k">
+                                <label for="budget3">KES 150k-300k</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="budget4" name="budget" value="KES 300k+">
+                                <label for="budget4">KES 300k+</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <h2 class="section-title">Goals</h2>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal1" name="goals[]" value="Lead generation">
+                                <label for="goal1">Lead generation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal2" name="goals[]" value="Ranking">
+                                <label for="goal2">Ranking</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal3" name="goals[]" value="Fix technical issues">
+                                <label for="goal3">Fix technical issues</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal4" name="goals[]" value="Penalty recovery">
+                                <label for="goal4">Penalty recovery</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal5" name="goals[]" value="New site launch">
+                                <label for="goal5">New site launch</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal6" name="goals[]" value="Migration SEO">
+                                <label for="goal6">Migration SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal7" name="goals[]" value="Local Pack growth">
+                                <label for="goal7">Local Pack growth</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="goal8" name="goals[]" value="e-commerce SEO">
+                                <label for="goal8">e-commerce SEO</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <label for="message">Message / Project Brief <span class="required">*</span></label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+            
+            <div class="info-section">
+                <h2>Let's Start Growing Your Business</h2>
+                <p>At Tera Creations, we make great businesses attractive on Google. Talk to a senior SEO strategist today – no fluff, just clarity, strategy, and results.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <h3>WhatsApp (Fastest)</h3>
+                        <p>Reach us instantly on WhatsApp. Edit the pre-filled text once chat opens.</p>
+                        <a href="https://wa.me/qr/73POYWZQQBUXC1" class="whatsapp-link">WhatsApp Bnls</a>
+                        <a href="https://wa.me/qr/73POYWZQQBUXC1" class="whatsapp-link">WhatsApp Admin</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h3>Call or Email</h3>
+                        <p>Bnls: 0769 924 070</p>
+                        <p>Admin: 254 769 924 070</p>
+                        <p>info@nyotecreation.com</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h3>Visit Us</h3>
+                        <p>Western Heights, Konvex Road,</p>
+                        <p>8th Floor, Skyrise Business Centre</p>
+                        <a href="https://maps.app.goo.gl/4RPx2KFD1rn8oABw5" class="visit-link">Open in Google Maps →</a>
+                    </div>
+                </div>
+                
+                <h3>Why Partner WITH Us?</h3>
+                <ul class="benefits-list">
+                    <li>SEO-only focus – we don't divide attention.</li>
+                    <li>Senior-led strategy & national transparency.</li>
+                    <li>Technical depth + content that ranks.</li>
+                    <li>Clear inputs – clear outputs. No fluff.</li>
+                </ul>
+                
+                <div class="next-step">
+                    <h3>Next Step</h3>
+                    <p>Choose the fastest way to get started:</p>
+                    <p><strong>Get a Free SEO Audit</strong></p>
+                    <p>Use the Form</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to the server here
+            // For this example, we'll just show the success message
+            
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to the top to show the success message
+            window.scrollTo(0, 0);
+            
+            // Reset the form
+            this.reset();
+            
+            // In a real implementation, you would send the form data to the server
+            // using fetch or XMLHttpRequest
+        });
+    </script>
+</body>
+</html>

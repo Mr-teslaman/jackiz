@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Development Routine | Nyote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #4ECDC4;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .routine-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .routine-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--secondary);
+        }
+
+        .yellow {
+            background-color: #FFD166;
+        }
+
+        .green {
+            background-color: var(--accent);
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .routine-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .routine-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .routine-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .routine-title i {
+            color: var(--primary);
+        }
+
+        .routine-desc {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Weekday Section */
+        .weekdays {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .weekdays-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .day-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .day-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .day-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .day-schedule {
+            list-style: none;
+            text-align: left;
+        }
+
+        .day-schedule li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .day-schedule li i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        /* Weekend Section */
+        .weekend {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .weekend-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .weekend-day {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .weekend-day.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .weekend-day:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .day-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .day-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .day-content {
+            flex: 1;
+        }
+
+        .day-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .day-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .day-activities {
+            list-style: none;
+        }
+
+        .day-activities li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .day-activities li i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        .day-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .day-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .weekend-day {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .day-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .weekdays-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .day-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#weekdays">Weekdays</a>
+                <a href="#weekend">Weekend</a>
+                <a href="#skills">Skills</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>My Web Development <span>Daily Routine</span></h1>
+                <p>A structured daily schedule balancing web development, client projects, graphic design, and teaching programming to maximize productivity and creativity.</p>
+                <a href="#weekdays" class="cta-button">Explore My Workflow</a>
+            </div>
+            <div class="hero-visual">
+                <div class="routine-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">Development Workflow</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="routine-item">
+                            <div class="routine-title"><i class="fas fa-code"></i> Web Development</div>
+                            <div class="routine-desc">Building responsive websites, web applications, and digital solutions using modern technologies.</div>
+                        </div>
+                        <div class="routine-item">
+                            <div class="routine-title"><i class="fas fa-briefcase"></i> Client Projects</div>
+                            <div class="routine-desc">Working on client websites, e-commerce solutions, and custom web applications.</div>
+                        </div>
+                        <div class="routine-item">
+                            <div class="routine-title"><i class="fas fa-palette"></i> Graphic Design</div>
+                            <div class="routine-desc">Creating UI/UX designs, logos, branding materials, and visual content.</div>
+                        </div>
+                        <div class="routine-item">
+                            <div class="routine-title"><i class="fas fa-chalkboard-teacher"></i> Teaching Programming</div>
+                            <div class="routine-desc">Creating tutorials, courses, and mentoring aspiring developers.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekday Section -->
+    <section class="weekdays" id="weekdays">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Weekday Development Schedule</h2>
+                <p>Structured days from Monday to Friday focused on web development, client work, and creative projects</p>
+            </div>
+            <div class="weekdays-grid">
+                <div class="day-card">
+                    <div class="day-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Monday - Development Day</h3>
+                    <p>Focus on coding new features and web applications</p>
+                    <ul class="day-schedule">
+                        <li><i class="fas fa-check"></i> 6:00 AM - Wake up & planning</li>
+                        <li><i class="fas fa-check"></i> 7:00 AM - Code review & setup</li>
+                        <li><i class="fas fa-check"></i> 9:00 AM - Frontend development</li>
+                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & tech reading</li>
+                        <li><i class="fas fa-check"></i> 2:00 PM - Backend development</li>
+                        <li><i class="fas fa-check"></i> 4:00 PM - Testing & debugging</li>
+                        <li><i class="fas fa-check"></i> 6:00 PM - Project documentation</li>
+                        <li><i class="fas fa-check"></i> 8:00 PM - Learning new frameworks</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Tuesday - Client Work</h3>
+                    <p>Dedicated to client projects and meetings</p>
+                    <ul class="day-schedule">
+                        <li><i class="fas fa-check"></i> 6:30 AM - Client email review</li>
+                        <li><i class="fas fa-check"></i> 8:00 AM - Client project work</li>
+                        <li><i class="fas fa-check"></i> 10:00 AM - Client meetings</li>
+                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & project planning</li>
+                        <li><i class="fas fa-check"></i> 2:00 PM - Implementation work</li>
+                        <li><i class="fas fa-check"></i> 4:00 PM - Progress updates</li>
+                        <li><i class="fas fa-check"></i> 6:00 PM - Client support</li>
+                        <li><i class="fas fa-check"></i> 8:00 PM - Industry research</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Wednesday - Design Day</h3>
+                    <p>Creative work on UI/UX and graphic design</p>
+                    <ul class="day-schedule">
+                        <li><i class="fas fa-check"></i> 6:00 AM - Design inspiration</li>
+                        <li><i class="fas fa-check"></i> 8:00 AM - UI/UX design work</li>
+                        <li><i class="fas fa-check"></i> 10:00 AM - Branding projects</li>
+                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & design trends</li>
+                        <li><i class="fas fa-check"></i> 2:00 PM - Graphic design work</li>
+                        <li><i class="fas fa-check"></i> 4:00 PM - Prototype creation</li>
+                        <li><i class="fas fa-check"></i> 6:00 PM - Design system updates</li>
+                        <li><i class="fas fa-check"></i> 8:00 PM - Creative exploration</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Thursday - Teaching Day</h3>
+                    <p>Creating educational content and mentoring</p>
+                    <ul class="day-schedule">
+                        <li><i class="fas fa-check"></i> 6:30 AM - Course planning</li>
+                        <li><i class="fas fa-check"></i> 8:00 AM - Tutorial creation</li>
+                        <li><i class="fas fa-check"></i> 10:00 AM - Code examples</li>
+                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & research</li>
+                        <li><i class="fas fa-check"></i> 2:00 PM - Video recording</li>
+                        <li><i class="fas fa-check"></i> 4:00 PM - Student mentoring</li>
+                        <li><i class="fas fa-check"></i> 6:00 PM - Content editing</li>
+                        <li><i class="fas fa-check"></i> 8:00 PM - Community engagement</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Friday - Project Wrap-up</h3>
+                    <p>Completion, testing, and planning for next week</p>
+                    <ul class="day-schedule">
+                        <li><i class="fas fa-check"></i> 6:00 AM - Weekly review</li>
+                        <li><i class="fas fa-check"></i> 8:00 AM - Project completion</li>
+                        <li><i class="fas fa-check"></i> 10:00 AM - Testing & QA</li>
+                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & reflection</li>
+                        <li><i class="fas fa-check"></i> 2:00 PM - Deployment work</li>
+                        <li><i class="fas fa-check"></i> 4:00 PM - Next week planning</li>
+                        <li><i class="fas fa-check"></i> 5:00 PM - Early finish</li>
+                        <li><i class="fas fa-check"></i> 7:00 PM - Tech community events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekend Section -->
+    <section class="weekend" id="weekend">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekend Rest & Skill Development</h2>
+                <p>Saturday and Sunday are for rest, learning, and personal projects</p>
+            </div>
+            <div class="weekend-container">
+                <div class="weekend-day">
+                    <div class="day-content">
+                        <div class="day-number">Sat</div>
+                        <h3>Saturday - Learning & Side Projects</h3>
+                        <p>A balance of rest, learning new technologies, and working on passion projects.</p>
+                        <ul class="day-activities">
+                            <li><i class="fas fa-check"></i> 8:00 AM - Wake up naturally</li>
+                            <li><i class="fas fa-check"></i> 9:00 AM - Breakfast & tech news</li>
+                            <li><i class="fas fa-check"></i> 10:00 AM - Learning new frameworks</li>
+                            <li><i class="fas fa-check"></i> 12:00 PM - Personal projects</li>
+                            <li><i class="fas fa-check"></i> 2:00 PM - Lunch & relaxation</li>
+                            <li><i class="fas fa-check"></i> 4:00 PM - Open source contributions</li>
+                            <li><i class="fas fa-check"></i> 7:00 PM - Movie or gaming</li>
+                        </ul>
+                    </div>
+                    <div class="day-visual">
+                        <div class="day-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="weekend-day">
+                    <div class="day-content">
+                        <div class="day-number">Sun</div>
+                        <h3>Sunday - Rest & Preparation</h3>
+                        <p>Complete rest, family time, and gentle preparation for the week ahead.</p>
+                        <ul class="day-activities">
+                            <li><i class="fas fa-check"></i> 8:30 AM - Leisurely wake up</li>
+                            <li><i class="fas fa-check"></i> 10:00 AM - Family breakfast</li>
+                            <li><i class="fas fa-check"></i> 11:00 AM - Outdoor activity</li>
+                            <li><i class="fas fa-check"></i> 1:00 PM - Family lunch</li>
+                            <li><i class="fas fa-check"></i> 3:00 PM - Reading & relaxation</li>
+                            <li><i class="fas fa-check"></i> 5:00 PM - Light week planning</li>
+                            <li><i class="fas fa-check"></i> 7:00 PM - Early dinner & early bedtime</li>
+                        </ul>
+                    </div>
+                    <div class="day-visual">
+                        <div class="day-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Development Skills</h2>
+                <p>Technologies and tools I work with daily in my web development routine</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>HTML5, CSS3, JavaScript, React, Vue.js, responsive design, and modern CSS frameworks.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Express, MongoDB, PostgreSQL, REST APIs, authentication, and server management.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach, cross-browser compatibility, and progressive web applications.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Figma, Adobe XD, user research, wireframing, prototyping, and design systems.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>DevOps & Deployment</h3>
+                    <p>Git, GitHub, CI/CD, Docker, AWS, Vercel, Netlify, and performance optimization.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Teaching & Mentoring</h3>
+                    <p>Creating courses, tutorials, documentation, and mentoring aspiring developers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start Your Development Journey</h2>
+            <p>Build a routine that balances coding, creativity, and continuous learning in web development.</p>
+            <a href="webdevelopment.html" class="cta-button-light">Begin Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Documenting my journey as a full-stack developer, designer, and educator. Sharing insights on web development, client work, and teaching programming.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Mr-teslaman/" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@MrTeslaman-u7e" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#weekdays"><i class="fas fa-chevron-right"></i> Weekdays</a></li>
+                        <li><a href="#weekend"><i class="fas fa-chevron-right"></i> Weekend</a></li>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Development Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="webdevelopment.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Client Projects</a></li>
+                        <li><a href="https://www.canva.com/design/DAG1eHFQS2A/MxgTjUQRQg4ZDih3LwobBw/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkMifX19LCJBIjp7IkEiOiJkb3dubG9hZF9wbmciLCJGIjp0cnVlfSwiRyI6eyJEIjp7IkQiOnsiQT8iOiJBIiwiQSI6IkIifX19fQ"><i class="fas fa-chevron-right"></i> Graphic Design</a></li>
+                        <li><a href=""><i class="fas fa-chevron-right"></i> Teaching Programming</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Development Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href=""><i class="fas fa-chevron-right"></i> Coding Tutorials</a></li>
+                        <li><a href="https://www.canva.com/design/DAG1eHFQS2A/MxgTjUQRQg4ZDih3LwobBw/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkMifX19LCJBIjp7IkEiOiJkb3dubG9hZF9wbmciLCJGIjp0cnVlfSwiRyI6eyJEIjp7IkQiOnsiQT8iOiJBIiwiQSI6IkIifX19fQ"><i class="fas fa-chevron-right"></i> Design Resources</a></li>
+                        <li><a href=""><i class="fas fa-chevron-right"></i> Project Templates</a></li>
+                        <li><a href="https://wa.me/qr/73POYWZQQBUXC1"><i class="fas fa-chevron-right"></i> Learning Paths</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote Development Routine. All rights reserved. | Building the Web, One Day at a Time</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Weekend day animation on scroll
+            const days = document.querySelectorAll('.weekend-day');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            days.forEach(day => {
+                observer.observe(day);
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

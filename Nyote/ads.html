@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nyote — Google Ads: From Beginner to Professional</title>
+<meta name="description" content="Nyote guide: how to run Google Ads (Search, Display, Shopping) — step-by-step for beginners and advanced tips for professionals. Mobile-friendly and accessible."/>
+<style>
+  /* -----------------  RESET ----------------- */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+  :root{
+    /* Unique page palette (background different from text) */
+    --bg: #e6fff4;       /* mint background (page) */
+    --text: #042a20;     /* deep green text */
+    --accent: #ff6b35;   /* coral accent */
+    --accent2: #0b66a6;  /* deep blue accent */
+    --card: #ffffff;     /* card background */
+    --muted: #466d60;    /* muted text */
+    --radius: 12px;
+    --maxw: 1100px;
+  }
+  body{background:var(--bg);color:var(--text);line-height:1.45;padding:16px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:8px;}
+
+  /* ------------- HEADER ------------- */
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 6px;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo-svg{width:52px;height:52px;border-radius:10px;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;font-weight:800;font-size:20px}
+  .brand-title{font-weight:800;font-size:18px}
+  nav{display:flex;gap:10px;align-items:center}
+  .nav-link{color:var(--text);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
+  .nav-link:focus{outline:3px solid rgba(11,102,166,0.12);outline-offset:3px}
+  .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+
+  /* mobile menu button */
+  .menu-btn{display:none;background:transparent;border:1px solid rgba(4,42,32,0.06);padding:8px;border-radius:8px}
+  .menu-btn:hover{background:rgba(4,42,32,0.03)}
+
+  /* ------------- HERO ------------- */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;margin-top:16px}
+  .hero-card{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:0 10px 30px rgba(4,42,32,0.06)}
+  h1{font-size:26px;margin-bottom:8px;color:var(--text)}
+  p.lead{color:var(--muted);margin-bottom:14px}
+
+  /* quick bullets */
+  .bullets{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .pill{background:linear-gradient(90deg,var(--accent2),var(--accent));color:white;padding:8px 10px;border-radius:999px;font-weight:700;font-size:13px}
+
+  /* demo right column */
+  .hero-visual{background:linear-gradient(180deg, rgba(11,102,166,0.06), rgba(255,107,53,0.03));padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+  .stat{display:flex;justify-content:space-between;align-items:center}
+  .bar-wrap{background:rgba(4,42,32,0.04);height:12px;border-radius:10px;overflow:hidden}
+  .bar{height:12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform-origin:left;animation:barGrow 1.6s cubic-bezier(.2,.9,.3,1)}
+  @keyframes barGrow{0%{transform:scaleX(0.02)}100%{transform:scaleX(1)}}
+
+  /* ------------- SECTIONS ------------- */
+  section{margin-top:26px}
+  .section-title{display:flex;align-items:baseline;gap:12px}
+  .section-title h2{font-size:20px;color:var(--accent2)}
+  .section-sub{color:var(--muted);font-size:14px;margin-top:6px}
+
+  /* grid of cards */
+  .grid{display:grid;gap:14px;margin-top:14px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(4,42,32,0.04);border:1px solid rgba(4,42,32,0.03)}
+  .card h3{margin-bottom:8px;color:var(--accent)}
+  .card p{color:var(--muted);font-size:14px}
+
+  /* code-like hint */
+  .code{background:#f4f6f7;padding:10px;border-radius:8px;font-family:monospace;color:#063;overflow:auto;border:1px solid rgba(4,42,32,0.03)}
+
+  /* ------------- CTA STRIP ------------- */
+  .cta-strip{margin-top:20px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(11,102,166,0.08), rgba(255,107,53,0.04));display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+
+  /* ------------- CONTACT FORM ------------- */
+  form{display:flex;gap:10px;flex-wrap:wrap}
+  input,textarea,select{padding:10px;border-radius:10px;border:1px solid rgba(4,42,32,0.06);background:transparent;color:var(--text);min-width:0}
+  textarea{min-height:100px;resize:vertical}
+  .btn-primary{background:var(--accent2);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+
+  /* ------------- FOOTER ------------- */
+  footer{margin-top:36px;padding:18px;border-top:1px solid rgba(4,42,32,0.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .socials{display:flex;gap:10px}
+  .socials a{width:44px;height:44px;border-radius:10px;background:var(--card);display:inline-grid;place-items:center;text-decoration:none;color:var(--text);box-shadow:0 6px 18px rgba(4,42,32,0.04)}
+  .small{color:var(--muted);font-size:13px}
+
+  /* ------------- REVEAL ANIMATIONS ------------- */
+  .reveal{opacity:0;transform:translateY(12px);transition:all 600ms cubic-bezier(.16,.84,.44,1)}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* ------------- RESPONSIVE (MOBILE-FIRST) ------------- */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:12px}
+    .grid.cols-3{grid-template-columns:repeat(2,1fr)}
+    nav{display:none}
+    .menu-btn{display:inline-block}
+  }
+  @media (max-width:520px){
+    .grid.cols-3{grid-template-columns:1fr}
+    header{padding:8px}
+    h1{font-size:22px}
+  }
+
+  /* prefers reduced motion */
+  @media (prefers-reduced-motion:reduce){
+    .bar{animation:none}
+    .reveal{transition:none}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="Nyote Home">
+        <div class="logo-svg" aria-hidden="true">N</div>
+        <div>
+          <div class="brand-title">Nyote</div>
+          <div style="color:var(--muted);font-size:13px">Google Ads Essentials</div>
+        </div>
+      </a>
+
+      <!-- mobile menu button (toggles inline nav) -->
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">☰</button>
+
+      <nav id="mainNav" aria-label="Main navigation">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#setup">Setup</a>
+        <a class="nav-link" href="#optimize">Optimize</a>
+        <a class="nav-link" href="#pro-tips">Pro Tips</a>
+        <a class="nav-link cta" href="#contact">Get Audit</a>
+      </nav>
+    </header>
+
+    <!-- mobile nav (hidden on desktop) -->
+    <div id="mobileNav" style="display:none;margin-top:8px" aria-hidden="true">
+      <nav style="display:flex;flex-direction:column;gap:8px">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#setup">Setup</a>
+        <a class="nav-link" href="#optimize">Optimize</a>
+        <a class="nav-link" href="#pro-tips">Pro Tips</a>
+        <a class="nav-link cta" href="#contact">Get Audit</a>
+      </nav>
+    </div>
+
+    <main>
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-card reveal" data-r>
+          <h1>Google Ads: A Practical Guide for Beginners & Professionals</h1>
+          <p class="lead">Create, launch and optimize Search, Display and Shopping campaigns that drive qualified traffic and profitable conversions. This guide covers core setup and advanced tactics.</p>
+
+          <div class="bullets" aria-hidden="false">
+            <div class="pill">Beginner → Setup</div>
+            <div class="pill">Advanced → Optimization</div>
+            <div class="pill">Mobile-friendly</div>
+            <div class="pill">Measure ROI</div>
+          </div>
+
+          <div style="margin-top:16px">
+            <a class="cta" href="#setup">Start a Campaign</a>
+            <span style="margin-left:12px;color:var(--muted);font-size:13px">or</span>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="margin-left:12px;padding:8px 12px;border-radius:10px;border:1px solid rgba(4,42,32,0.06);background:transparent;cursor:pointer">Request audit</button>
+          </div>
+        </div>
+
+        <aside class="hero-visual reveal" data-r aria-hidden="true">
+          <div class="stat"><div style="font-weight:700">CTR improvement</div><div style="font-weight:800;color:var(--accent2)">+34%</div></div>
+          <div class="bar-wrap"><div class="bar" style="width:84%"></div></div>
+          <div class="stat"><div style="font-weight:700">Conversion uplift</div><div style="font-weight:800;color:var(--accent)">+18%</div></div>
+          <div class="bar-wrap"><div class="bar" style="width:62%"></div></div>
+
+          <div style="margin-top:10px;color:var(--muted);font-size:13px">Sample metrics based on optimization case studies.</div>
+        </aside>
+      </div>
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="reveal" data-r>
+        <div class="section-title">
+          <h2>Overview</h2>
+        </div>
+        <div class="section-sub">What Google Ads is and when to use each campaign type</div>
+
+        <div class="grid cols-3" style="margin-top:14px">
+          <article class="card">
+            <h3>Search Ads</h3>
+            <p>Text ads shown in Google Search results. Great for capturing intent (high purchase/buying signals).</p>
+          </article>
+          <article class="card">
+            <h3>Display Ads</h3>
+            <p>Visual ads across websites and apps — useful for awareness and retargeting.</p>
+          </article>
+          <article class="card">
+            <h3>Shopping & Video</h3>
+            <p>Shopping ads for e-commerce and YouTube video ads for brand storytelling.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SETUP -->
+      <section id="setup" class="reveal" data-r>
+        <div class="section-title">
+          <h2>Step-by-step Setup (Beginner)</h2>
+        </div>
+        <div class="section-sub">Create your first campaign and track results</div>
+
+        <div class="grid" style="margin-top:14px">
+          <div class="card">
+            <h3>1. Account basics</h3>
+            <p class="card-text">Link your Google Ads to Google Analytics, set billing, and verify conversion tracking (events or goals).</p>
+          </div>
+          <div class="card">
+            <h3>2. Campaign goal & type</h3>
+            <p class="card-text">Choose goals (Sales, Leads, Traffic) then pick Search, Display, Shopping, or Video based on objective.</p>
+          </div>
+          <div class="card">
+            <h3>3. Keywords & targeting</h3>
+            <p class="card-text">Start with exact & phrase match for high intent keywords. Add negative keywords to avoid wasted spend.</p>
+          </div>
+          <div class="card">
+            <h3>4. Ad copy & assets</h3>
+            <p class="card-text">Write compelling headlines, include CTAs, and use responsive search ads for automated combinations.</p>
+          </div>
+          <div class="card">
+            <h3>5. Bidding & budgets</h3>
+            <p class="card-text">Begin with conservative manual bidding or Target CPA if you have conversion history.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPTIMIZATION -->
+      <section id="optimize" class="reveal" data-r>
+        <div class="section-title">
+          <h2>Optimization (Intermediate → Advanced)</h2>
+        </div>
+        <div class="section-sub">Tactics to lower CPA and increase ROI</div>
+
+        <div class="grid cols-3" style="margin-top:14px">
+          <div class="card">
+            <h3>Ad Extensions</h3>
+            <p class="card-text">Use sitelink, callout, and structured snippet extensions to increase ad real estate and CTR.</p>
+          </div>
+          <div class="card">
+            <h3>Audience Signals</h3>
+            <p class="card-text">Layer in remarketing lists, custom intent audiences, and in-market segments for precise targeting.</p>
+          </div>
+          <div class="card">
+            <h3>Search Terms & Negatives</h3>
+            <p class="card-text">Regularly review search terms to add converting queries as keywords and block irrelevant queries.</p>
+          </div>
+          <div class="card">
+            <h3>Landing Page Fit</h3>
+            <p class="card-text">Ensure landing pages match ad intent, load fast, and have clear conversion paths.</p>
+          </div>
+          <div class="card">
+            <h3>Experimentation</h3>
+            <p class="card-text">Run A/B tests on headlines, CTAs, and landing pages. Use drafts & experiments for larger changes.</p>
+          </div>
+          <div class="card">
+            <h3>Smart Bidding</h3>
+            <p class="card-text">When you have reliable conversion data, test Target CPA or Target ROAS for automated bidding performance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRO TIPS -->
+      <section id="pro-tips" class="reveal" data-r>
+        <div class="section-title">
+          <h2>Pro Tips for Professionals</h2>
+        </div>
+        <div class="section-sub">Advanced practices used by experienced advertisers</div>
+
+        <div class="grid cols-3" style="margin-top:14px">
+          <div class="card">
+            <h3>SKAGs & Theming</h3>
+            <p class="card-text">Single-keyword ad groups (SKAGs) or tightly themed ad groups improve relevance and Quality Score.</p>
+          </div>
+          <div class="card">
+            <h3>Data-driven Attribution</h3>
+            <p class="card-text">Use data-driven or position-based attribution models to understand true conversion touchpoints.</p>
+          </div>
+          <div class="card">
+            <h3>Automation with Rules & Scripts</h3>
+            <p class="card-text">Automate routine tasks (pause low-performers, adjust bids at scale) using rules and scripts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA STRIP -->
+      <div class="cta-strip reveal" data-r>
+        <div style="flex:1;min-width:220px">
+          <strong>Need help launching or scaling Google Ads?</strong>
+          <div style="color:var(--muted);font-size:13px">Nyote offers audits, campaign builds and managed services tailored to your goals.</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Audit</button>
+          <a class="nav-link" href="#optimize">Read optimization checklist →</a>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <section id="contact" class="reveal" data-r>
+        <div class="section-title"><h2>Contact & Request</h2></div>
+        <div class="section-sub">Send a short brief and we’ll reply with a suggested next step (simulated).</div>
+
+        <div style="margin-top:16px;display:grid;gap:12px">
+          <div class="card" style="display:flex;flex-direction:column;gap:10px">
+            <form id="contactForm">
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <input type="text" id="name" placeholder="Your name" required style="flex:1;min-width:160px" />
+                <input type="email" id="email" placeholder="Email address" required style="flex:1;min-width:160px" />
+              </div>
+              <input type="text" id="site" placeholder="website (optional)" style="margin-top:8px" />
+              <select id="goal" style="margin-top:8px">
+                <option value="">Campaign goal — choose one</option>
+                <option>Sales / eCommerce</option>
+                <option>Leads</option>
+                <option>Traffic / Trials</option>
+                <option>Brand Awareness</option>
+              </select>
+              <textarea id="notes" placeholder="Short brief (what do you want to achieve?)" style="margin-top:8px"></textarea>
+
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <button type="submit" class="btn-primary">Send Request</button>
+                <button type="button" onclick="resetForm()" style="padding:10px;border-radius:10px;border:1px solid rgba(4,42,32,0.06);background:transparent;cursor:pointer">Reset</button>
+              </div>
+              <div id="formMsg" class="small" style="margin-top:8px"></div>
+            </form>
+          </div>
+
+          <div style="color:var(--muted);font-size:13px">Prefer email? mail <a href="mailto:hello@nyote.example" style="color:var(--accent)">hello@nyote.example</a></div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="logo-svg" aria-hidden="true" style="width:44px;height:44px;font-size:18px">N</div>
+          <div>
+            <div style="font-weight:800">Nyote</div>
+            <div class="small">Google Ads · Growth & Performance</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+          <div class="socials" aria-label="social links">
+            <!-- inline SVG icons -->
+            <a href="https://x.com/MrTeslaman?t=6WkcmK-Hbv1D-8wRqjWpbQ&s=08" aria-label="Twitter" title="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 7.5c-.5.2-1 .3-1.6.4.6-.4 1-1 1.2-1.8-.6.4-1.3.6-2 .8-.6-.6-1.3-1-2.1-1-1.6 0-2.7 1.7-2.4 3.2-2.1-.1-4-1.1-5.3-2.6-.7 1.2-.3 2.8 1 3.6-.5 0-1-.1-1.5-.4 0 1.5 1 3 2.6 3.3-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.5 3.3 2.6-1.3 1-2.9 1.6-4.6 1.6H6c1.6 1 3.4 1.6 5.3 1.6 6.3 0 9.8-5.3 9.8-9.8v-.4c.7-.5 1.2-1.2 1.6-2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1c1.37 0 2.49 1.12 2.49 2.5zM.2 8.98H4.8V24H.2zM7.5 8.98h4.3v2.06h.1c.6-1.1 2.06-2.26 4.24-2.26 4.54 0 5.38 2.98 5.38 6.85V24h-4.6v-7.12c0-1.7 0-3.88-2.36-3.88-2.36 0-2.72 1.83-2.72 3.75V24H7.5z"/></svg>
+            </a>
+            <a href="https://wa.me/254769924070" aria-label="Email" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+          <div class="small">© Nyote <span id="year"></span> — Learn & Grow with Ads</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+<script>
+  // Mobile nav toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.style.display !== 'block';
+    mobileNav.style.display = open ? 'block' : 'none';
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Reveal on scroll (respect reduced motion)
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(document.querySelectorAll('[data-r], .card, section, .cta-strip'));
+    function reveal(){
+      const top = window.innerHeight * 0.9;
+      els.forEach(el=>{
+        if(el.getBoundingClientRect().top <= top) el.classList.add('visible');
+      });
+    }
+    if(!prefersReduced){
+      reveal();
+      window.addEventListener('scroll', reveal, {passive:true});
+      window.addEventListener('resize', reveal);
+    } else {
+      els.forEach(e=>e.classList.add('visible'));
+    }
+  })();
+
+  // Contact form simulation
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const msg = document.getElementById('formMsg');
+    if(!name || !email || !email.includes('@')){ msg.textContent = 'Please enter a valid name and email.'; return; }
+    msg.textContent = 'Sending request...';
+    setTimeout(()=>{ msg.textContent = 'Thanks — we received your brief (simulated). We will reply soon.'; form.reset(); },900);
+  });
+
+  function resetForm(){ document.getElementById('contactForm').reset(); document.getElementById('formMsg').textContent=''; }
+
+  // set year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
