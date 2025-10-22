@@ -1,322 +1,1276 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nyote — Local SEO Kenya (Beginner → Pro)</title>
-  <meta name="description" content="Local SEO in Kenya — step-by-step guides, examples, and tools for beginners and professionals. Responsive single-page site by Nyote." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --max-width:1100px;
-      --radius:14px;
-      --glass: rgba(255,255,255,0.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#111}
-    a{color:inherit}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyote - Premier SEO Agency in Kenya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    /* --- PAGE LAYOUT --- */
-    header{position:sticky;top:0;z-index:60;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.60), rgba(255,255,255,0.35));border-bottom:1px solid rgba(0,0,0,0.05)}
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:18px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo svg{width:40px;height:40px}
-    .logo .brand{font-weight:700;letter-spacing:0.6px}
-    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:12px}
-    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}
-    nav a:hover{transform:translateY(-2px)}
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00A896;
+            --dark: #1A1A2E;
+            --light: #F7F9FC;
+            --gray: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-    /* --- SECTIONS: each section uses a different background color (no repeats) --- */
-    section{min-height:80vh;padding:64px 18px;display:flex;align-items:center}
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* HERO (page 1) - color: warm yellow */
-    #hero{background:linear-gradient(120deg,#fff7d6,#fff2b8);color:#2b2b2b}
-    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
-    .hero-title{font-size:clamp(28px,5vw,44px);line-height:1.02;margin:0}
-    .hero-lead{margin-top:12px;font-size:1rem;opacity:0.95}
-    .cta-row{display:flex;gap:12px;margin-top:18px}
-    .btn{background:#111;color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* WHY (page 2) - color: soft teal */
-    #why{background:linear-gradient(140deg,#e6fbf7,#d6fbf2);color:#064a47}
-    .card{background:rgba(255,255,255,0.7);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(23,23,23,0.06)}
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
 
-    /* HOW (page 3) - color: coral */
-    #how{background:linear-gradient(120deg,#ffdeda,#ffcfc0);color:#52231c}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .step{padding:18px;border-radius:12px;background:rgba(255,255,255,0.85)}
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
 
-    /* TOOLS (page 4) - color: light purple */
-    #tools{background:linear-gradient(120deg,#f3e7ff,#eedcff);color:#2f0b48}
-    .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-    /* CASES (page 5) - color: soft blue */
-    #cases{background:linear-gradient(120deg,#e8f2ff,#dfeeff);color:#08305a}
-    .case-list{display:flex;flex-direction:column;gap:12px}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
 
-    /* FOOTER - color: pale green */
-    footer{background:linear-gradient(180deg,#e9fff0,#d9ffea);color:#0b4b2e;padding:28px}
-    .socials{display:flex;gap:12px}
-    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(0,0,0,0.06);text-decoration:none}
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+        }
 
-    /* --- Responsive --- */
-    @media (max-width:900px){
-      .hero-grid{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
-      .tools-grid{grid-template-columns:1fr}
-      nav ul{display:none}
-    }
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    @media (max-width:480px){
-      section{padding:36px 14px}
-      .logo svg{width:34px;height:34px}
-    }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
 
-    /* --- Small animations (respects prefers-reduced-motion) --- */
-    @media (prefers-reduced-motion: no-preference){
-      .hero-title{animation: floatIn 900ms cubic-bezier(.2,.9,.3,1) both}
-      .card, .step, .tools-grid > *{transform:translateY(8px);opacity:0;animation:popUp 700ms ease forwards;animation-delay: calc(var(--i)*120ms)}
-    }
-    @keyframes floatIn{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
-    @keyframes popUp{to{transform:none;opacity:1}}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
 
-    /* visual helpers */
-    .muted{opacity:0.85}
-    .kpi{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.75);font-weight:700}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.05)}
-    .mini{font-size:0.9rem}
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-    /* accessibility: focus state */
-    :focus{outline:3px solid #ffd54f;outline-offset:3px}
-  </style>
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            background: linear-gradient(135deg, #fff5f0 0%, #e6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.05) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .seo-visual {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .seo-visual:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .visual-header {
+            background: var(--dark);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .visual-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: var(--primary);
+        }
+
+        .yellow {
+            background-color: #FFD166;
+        }
+
+        .green {
+            background-color: var(--accent);
+        }
+
+        .visual-title {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .visual-content {
+            padding: 25px;
+        }
+
+        .metric-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .metric-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .metric-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metric-title i {
+            color: var(--primary);
+        }
+
+        .metric-value {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Why Kenya Section */
+        .kenya {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .kenya-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .kenya-step {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .kenya-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .kenya-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .step-list {
+            list-style: none;
+        }
+
+        .step-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-list li i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .step-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Results Section */
+        .results {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .result-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .result-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .industries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .industry-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .industry-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .industry-card p {
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-light {
+            display: inline-block;
+            padding: 18px 35px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .footer-col p {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .kenya-step {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .industries-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="logo" aria-label="Nyote logo">
-        <!-- Simple Nyote SVG logo -->
-        <svg viewBox="0 0 100 100" role="img" aria-hidden="false">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#ff8a65"/>
-              <stop offset="1" stop-color="#ffd54f"/>
-            </linearGradient>
-          </defs>
-          <rect x="6" y="20" width="80" height="60" rx="12" fill="url(#g1)"/>
-          <text x="50" y="55" font-family="Inter, Arial" font-weight="800" font-size="28" text-anchor="middle" fill="#ffffff">N</text>
-        </svg>
-        <div>
-          <div class="brand">Nyote</div>
-          <div class="mini muted">Local SEO — Kenya</div>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nyote</div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#kenya">Why Kenya</a>
+                <a href="#results">Results</a>
+            </nav>
+            <div class="mobile-menu">☰</div>
         </div>
-      </div>
+    </header>
 
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#why">Why</a></li>
-          <li><a href="#how">How</a></li>
-          <li><a href="#tools">Tools</a></li>
-          <li><a href="#cases">Cases</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO (Warm yellow) -->
-    <section id="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <h1 class="hero-title">Local SEO in Kenya — <span class="kpi">Beginner → Pro</span></h1>
-          <p class="hero-lead">Step-by-step practical guides tailored to Kenyan businesses: Google Business Profile, local citations, on-page tweaks, content for local intent, reviews, and measuring results.</p>
-          <div class="cta-row">
-            <a class="btn" href="#how" role="button">Get Started</a>
-            <a class="pill" href="#tools">Recommended Tools</a>
-          </div>
-
-          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-            <div class="card mini" style="--i:1">Local keywords + Swahili</div>
-            <div class="card mini" style="--i:2">GMB optimisation</div>
-            <div class="card mini" style="--i:3">Citations & directories</div>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Premier <span>SEO Agency in Kenya</span></h1>
+                <p>We help Kenyan businesses dominate search results and drive qualified traffic with data-driven SEO strategies tailored for the local market.</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+            <div class="hero-visual">
+                <div class="seo-visual">
+                    <div class="visual-header">
+                        <div class="visual-dot red"></div>
+                        <div class="visual-dot yellow"></div>
+                        <div class="visual-dot green"></div>
+                        <div class="visual-title">SEO Performance Dashboard</div>
+                    </div>
+                    <div class="visual-content">
+                        <div class="metric-item">
+                            <div class="metric-title"><i class="fas fa-chart-line"></i> Organic Traffic Growth</div>
+                            <div class="metric-value">Average 215% increase for our Kenyan clients in the first 6 months</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-title"><i class="fas fa-search"></i> Keyword Rankings</div>
+                            <div class="metric-value">85% of targeted keywords reach top 3 positions in Google Kenya</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-title"><i class="fas fa-money-bill-wave"></i> ROI</div>
+                            <div class="metric-value">Average 5:1 return on investment for our SEO campaigns</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-title"><i class="fas fa-globe-africa"></i> Local Focus</div>
+                            <div class="metric-value">Specialized in Kenyan market trends and consumer behavior</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <aside class="card" aria-hidden="false" style="--i:4">
-          <h3 style="margin:0 0 8px 0">Quick guide</h3>
-          <ol style="margin:0 0 6px 18px;padding:0">
-            <li class="mini">Claim & verify Google Business Profile</li>
-            <li class="mini">Add local keywords + schema</li>
-            <li class="mini">Build citations & local links</li>
-            <li class="mini">Collect reviews & respond</li>
-          </ol>
-          <div class="muted mini">Designed for: SMEs, shops, clinics, lawyers, mechanics across Kenya.</div>
-        </aside>
-      </div>
     </section>
 
-    <!-- WHY (Soft teal) -->
-    <section id="why">
-      <div class="wrap">
-        <h2>Why Local SEO matters in Kenya</h2>
-        <p class="muted">Kenyan searchers frequently add city names (Nairobi, Mombasa, Kisumu) or search in Kiswahili — ranking locally drives foot traffic and calls.</p>
-        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-          <div class="card" style="--i:1">
-            <strong>Higher conversion</strong>
-            <div class="mini muted">Local searches have strong purchase intent — optimise for local to win customers.</div>
-          </div>
-          <div class="card" style="--i:2">
-            <strong>Low-cost channel</strong>
-            <div class="mini muted">Organic local traffic reduces ad spend for small budgets.</div>
-          </div>
-          <div class="card" style="--i:3">
-            <strong>Mobile-first users</strong>
-            <div class="mini muted">Most Kenyan users search on mobile — make info quick to find and call.</div>
-          </div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our SEO Services</h2>
+                <p>Comprehensive SEO solutions designed specifically for Kenyan businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Local SEO</h3>
+                    <p>Optimize your online presence for Kenyan customers searching for products and services in their area.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce SEO</h3>
+                    <p>Increase visibility and sales for online stores targeting the growing Kenyan e-commerce market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile SEO</h3>
+                    <p>Optimize for Kenya's mobile-first internet users with responsive design and mobile-specific strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Content Strategy</h3>
+                    <p>Create engaging, relevant content that resonates with Kenyan audiences and ranks well in search.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Link Building</h3>
+                    <p>Build authoritative backlinks from reputable Kenyan websites and international sources.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>SEO Analytics</h3>
+                    <p>Comprehensive tracking and reporting to measure ROI and optimize campaign performance.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- HOW (Coral) -->
-    <section id="how">
-      <div class="wrap">
-        <h2>How — step-by-step (practical)</h2>
-        <div class="steps" style="margin-top:18px">
-          <div class="step" style="--i:1">
-            <h3>1. Google Business Profile</h3>
-            <p class="mini">Claim, verify, add correct NAP (Name, Address, Phone), business hours, photos and services. Use local keywords in your description and keep categories accurate.</p>
-          </div>
-          <div class="step" style="--i:2">
-            <h3>2. On-page + Schema</h3>
-            <p class="mini">Add local schema (LocalBusiness), include town/city in titles/meta, create location-specific pages (e.g., "Plumber in Nairobi").</p>
-          </div>
-          <div class="step" style="--i:3">
-            <h3>3. Citations & Directories</h3>
-            <p class="mini">List your business in Kenyan directories and niche sites: Yellow Pages Kenya, BrighterMonday (if applicable), local chambers, and industry directories. Keep NAP consistent.</p>
-          </div>
+    <!-- Why Kenya Section -->
+    <section class="kenya" id="kenya">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why SEO in Kenya Matters</h2>
+                <p>The Kenyan digital landscape presents unique opportunities for businesses that understand local search behavior</p>
+            </div>
+            <div class="kenya-container">
+                <div class="kenya-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Rapid Digital Growth</h3>
+                        <p>Kenya is experiencing explosive growth in internet penetration and mobile adoption, creating massive opportunities for online visibility.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Over 90% internet penetration in urban areas</li>
+                            <li><i class="fas fa-check"></i> Mobile-first internet usage exceeding 75%</li>
+                            <li><i class="fas fa-check"></i> Growing e-commerce adoption across all demographics</li>
+                            <li><i class="fas fa-check"></i> Increasing digital literacy and online purchasing</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="kenya-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Local Search Behavior</h3>
+                        <p>Kenyan consumers have unique search patterns and preferences that require specialized SEO strategies.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> High usage of local search terms and Swahili keywords</li>
+                            <li><i class="fas fa-check"></i> Preference for mobile-optimized websites</li>
+                            <li><i class="fas fa-check"></i> Trust in local business reviews and recommendations</li>
+                            <li><i class="fas fa-check"></i> Growing importance of voice search optimization</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="kenya-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Competitive Advantage</h3>
+                        <p>Early adoption of sophisticated SEO strategies provides significant competitive advantage in the Kenyan market.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Less competition for quality SEO implementation</li>
+                            <li><i class="fas fa-check"></i> Higher ROI compared to mature markets</li>
+                            <li><i class="fas fa-check"></i> Opportunity to establish market leadership</li>
+                            <li><i class="fas fa-check"></i> Faster results due to evolving algorithms</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--accent), var(--primary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div style="margin-top:18px" class="steps">
-          <div class="step" style="--i:4">
-            <h3>4. Reviews & Reputation</h3>
-            <p class="mini">Ask customers to leave Google reviews; reply professionally. Reviews influence rankings and CTR.</p>
-          </div>
-          <div class="step" style="--i:5">
-            <h3>5. Local Content</h3>
-            <p class="mini">Create content about local events, guides, and frequently asked local questions using Kiswahili where relevant.</p>
-          </div>
-          <div class="step" style="--i:6">
-            <h3>6. Local Link Building</h3>
-            <p class="mini">Partner with local blogs, suppliers, and community sites for backlinks. Sponsor local events or list on community pages.</p>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <!-- TOOLS (Light purple) -->
-    <section id="tools">
-      <div class="wrap">
-        <h2>Tools & Resources</h2>
-        <div class="tools-grid" style="margin-top:18px">
-          <div class="card" style="--i:1">
-            <h4>Google Business Profile</h4>
-            <p class="mini muted">Primary tool for local presence and insights.</p>
-          </div>
-          <div class="card" style="--i:2">
-            <h4>Keyword tools</h4>
-            <p class="mini muted">Use free keyword planners, Google Autocomplete, and local competitor research.</p>
-          </div>
-          <div class="card" style="--i:3">
-            <h4>Citation trackers</h4>
-            <p class="mini muted">Keep NAP consistent with spreadsheets, or use citation tools for scale.</p>
-          </div>
-          <div class="card" style="--i:4">
-            <h4>WhatsApp & Call tracking</h4>
-            <p class="mini muted">Enable click-to-call and WhatsApp links for easier mobile conversions.</p>
-          </div>
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Results Speak for Themselves</h2>
+                <p>Measurable success for Kenyan businesses across various industries</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>215%</h3>
+                    <p>Average organic traffic growth</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>85%</h3>
+                    <p>Keywords in top 3 positions</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>5:1</h3>
+                    <p>Average ROI on SEO investment</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>3-6</h3>
+                    <p>Months to see significant results</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- CASES (Soft blue) -->
-    <section id="cases">
-      <div class="wrap">
-        <h2>Case examples (Kenya)</h2>
-        <p class="muted">Short examples you can replicate.</p>
-        <div class="case-list" style="margin-top:12px">
-          <div class="card">
-            <strong>Local bakery — Nairobi</strong>
-            <div class="mini muted">Added "bakery near me" pages, optimized GBP with daily photos. +40% foot traffic in 3 months.</div>
-          </div>
-          <div class="card">
-            <strong>Mechanic shop — Mombasa</strong>
-            <div class="mini muted">Built citations in coastal directories and used Kiswahili service pages. Calls increased 55%.</div>
-          </div>
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <p>We have experience optimizing websites across various sectors in the Kenyan market</p>
+            </div>
+            <div class="industries-container">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Retail & E-commerce</h3>
+                    <p>Boost online sales and visibility for retail businesses targeting Kenyan consumers.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Hospitality & Tourism</h3>
+                    <p>Attract more visitors to hotels, restaurants, and tourist attractions across Kenya.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Help medical practices and healthcare providers reach patients searching for services.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>Increase enrollment for schools, colleges, and training institutions in Kenya.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Real Estate</h3>
+                    <p>Connect property developers and agents with qualified buyers and renters.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Services & Professional</h3>
+                    <p>Help service-based businesses attract high-quality leads and clients.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-  </main>
-
-  <footer>
-    <div class="wrap" style="display:flex;flex-direction:column;gap:12px">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <strong>Nyote</strong>
-          <div class="mini muted">Local SEO — Kenya</div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Dominate Kenyan Search Results?</h2>
+            <p>Let's work together to grow your business with proven SEO strategies tailored for the Kenyan market.</p>
+            <a href="#" class="cta-button-light">Start Your SEO Journey</a>
         </div>
+    </section>
 
-        <div class="socials" aria-label="Social links">
-          <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09" aria-label="Twitter" title="Twitter">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M23 4.5c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.7.4-1.6.7-2.5.9C18.8 3 17.6 2.5 16.3 2.5c-2.1 0-3.7 1.7-3.7 3.7 0 .3 0 .7.1 1C9.7 7.1 6.8 5.6 4.8 3.3c-.4.7-.6 1.3-.6 2.1 0 1.4.7 2.6 1.8 3.3-.6 0-1.2-.2-1.7-.5v.1c0 2 .1 3.8 2.1 5-1.4.1-2.7-.4-3.8-1.2-.1 1.7 1.1 3.3 2.9 3.6C6.9 18.9 5.3 19.5 3.6 19.5c-.4 0-.8 0-1.1-.1 1.3.9 3 1.4 4.8 1.4 5.7 0 8.8-4.7 8.8-8.8v-.4c.6-.4 1.2-1 1.7-1.6-.6.3-1.2.5-1.9.6z" fill="#0b4b2e"/></svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61577844734551" aria-label="Facebook" title="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.4-3.6 3.4-3.6.98 0 2 .18 2 .18v2.2h-1.1c-1.1 0-1.5.73-1.5 1.5V12h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z" fill="#0b4b2e"/></svg>
-          </a>
-          <a href="https://www.instagram.com/teslaman788?igsh=YzljYTk1ODg3Zg==" aria-label="Instagram" title="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zm6.2-3.6a1.1 1.1 0 11-1.1 1.1 1.1 1.1 0 011.1-1.1z" fill="#0b4b2e"/></svg>
-          </a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">N</div>
+                        <div class="logo-text">Nyote</div>
+                    </a>
+                    <p>Premier SEO agency helping Kenyan businesses achieve online visibility, drive qualified traffic, and increase revenue through data-driven search engine optimization strategies.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#kenya"><i class="fas fa-chevron-right"></i> Why Kenya</a></li>
+                        <li><a href="#results"><i class="fas fa-chevron-right"></i> Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Local SEO</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> E-commerce SEO</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mobile SEO</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Content Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +254 700 123 456</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@nyote.co.ke</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8AM - 6PM EAT</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyote SEO Agency Kenya. All rights reserved. | Helping Kenyan Businesses Thrive Online</p>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <div class="mini muted">© <span id="year"></span> Nyote — Built for Kenyan businesses • Designed to be mobile-first.</div>
-    </div>
-  </footer>
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kenya step animation on scroll
+            const steps = document.querySelectorAll('.kenya-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
 
-  <script>
-    // set year
-    document.getElementById('year').textContent = new Date().getFullYear();
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
 
-    // Smooth scroll for nav
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(!href || href === '#') return;
-        const target = document.querySelector(href);
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      })
-    })
-
-    // Simple reveal on scroll (lightweight)
-    if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
-      const reveals = document.querySelectorAll('.card, .step, .tools-grid > *');
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach((entry)=>{
-          if(entry.isIntersecting){
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'none';
-            obs.unobserve(entry.target);
-          }
-        })
-      },{threshold:0.15});
-      reveals.forEach(r=>obs.observe(r));
-    }
-  </script>
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

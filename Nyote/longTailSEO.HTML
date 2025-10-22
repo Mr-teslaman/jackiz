@@ -1,285 +1,802 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nyote — Long-Tail Keywords: Why They Matter for SEO</title>
-<meta name="description" content="Nyote — Learn why long-tail keywords matter, how to find them, and how to use them to attract qualified traffic and increase conversions." />
-<style>
-  :root{
-    --bg: rgba(53, 15, 221, 0.2);
-    --panel:#0f0d0d;
-    --accent1:#7c3aed; /* violet */
-    --accent2:#a3e635; /* lime */
-    --muted:#9aa3b2;
-    --glass: rgba(255,255,255,0.03);
-    --radius:14px;
-    --maxw:1100px;
-    color-scheme: dark;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyote | Long-Tail Keywords: Why They Matter for SEO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --dark: #2A2D3E;
+            --light: #F7F9FC;
+            --text: #4A4A68;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+        }
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background:
-      radial-gradient(600px 300px at 10% 10%, rgba(124,58,237,0.06), transparent 8%),
-      radial-gradient(500px 260px at 90% 80%, rgba(163,230,53,0.03), transparent 8%),
-      var(--bg);
-    color:#e6eef6;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding:28px 18px;
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  .wrap{max-width:var(--maxw);margin:0 auto}
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-  .logo{width:52px;height:52px;flex:0 0 52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:inline-grid;place-items:center;font-weight:800;color:#071126}
-  .brand .title{font-weight:700;font-size:20px}
-  nav{display:flex;gap:12px;align-items:center}
-  nav a{color:var(--muted);text-decoration:none;font-weight:600}
-  nav a.cta{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#071126;padding:10px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(124,58,237,0.12)}
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center;margin-top:22px}
-  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);box-shadow:0 12px 40px rgba(2,6,23,0.6);backdrop-filter:blur(6px)}
-  h1{margin:0;font-size:34px;line-height:1.04}
-  p.lead{color:var(--muted);margin-top:10px;font-size:15px}
+        /* Header Styles */
+        header {
+            background: var(--dark);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
-  .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-  .chip{background:var(--glass);padding:10px;border-radius:10px;font-weight:600}
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  /* visual card */
-  .visual{border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 40px rgba(2,6,23,0.5);background:linear-gradient(180deg,#071026 0%, #08122a 100%);padding:20px}
-  .graph{height:260px;border-radius:12px;background:linear-gradient(180deg, rgba(163,230,53,0.03), rgba(124,58,237,0.02));display:flex;flex-direction:column;gap:10px;padding:12px}
-  .row{display:flex;align-items:center;gap:10px}
-  .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2))}
-  .bar{height:12px;border-radius:8px;background:linear-gradient(90deg,var(--accent2),var(--accent1));flex:1;opacity:0.95;transform-origin:left;animation:grow 1.6s ease both}
-  @keyframes grow{from{transform:scaleX(0.05)}to{transform:scaleX(1)}}
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
 
-  .form{display:flex;gap:10px;margin-top:18px}
-  .form input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-  .form button{padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:700;cursor:pointer}
+        .logo:hover {
+            transform: scale(1.05);
+        }
 
-  /* sections */
-  section{margin-top:38px}
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .card{background:var(--panel);padding:18px;border-radius:12px;box-shadow:0 8px 28px rgba(2,6,23,0.4)}
-  .card h3{margin:0 0 8px 0}
-  .muted{color:var(--muted);font-size:14px}
+        .logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 32px;
+        }
 
-  /* CTA */
-  .cta-strip{margin-top:28px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:20px;border-radius:12px;color:#071126;text-align:center;font-weight:700}
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
 
-  /* footer */
-  footer{margin-top:44px;padding:20px 0;color:var(--muted)}
-  .foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  .social{display:flex;gap:10px}
-  .social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--glass);color:inherit;text-decoration:none}
+        nav ul li {
+            margin-left: 30px;
+        }
 
-  /* animation & reveal */
-  .reveal{opacity:0;transform:translateY(12px);transition:all 650ms cubic-bezier(.16,.84,.44,1)}
-  .reveal.visible{opacity:1;transform:none}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-  /* responsive */
-  @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:620px){.grid-3{grid-template-columns:1fr}.nav-collapse{display:none}}
-  @media (prefers-reduced-motion:reduce){.form button,.visual .bar{animation:none}}
-  a:focus,button:focus,input:focus{outline:3px solid rgba(163,230,53,0.12);outline-offset:3px}
-</style>
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjxwYXRoIGQ9Ik0wIDUwMEwxMDAwIDUwMEwxMDAwIDYwMEwwIDYwMFoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjxwYXRoIGQ9Ik0wIDMwMEwxMDAwIDMwMEwxMDAwIDQwMEwwIDQwMFoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==');
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 28px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .card p {
+            margin-bottom: 20px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Examples Section */
+        .examples {
+            background: var(--light);
+        }
+
+        .example-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .example-content {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .example-image {
+            flex: 0 0 300px;
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .example-image i {
+            font-size: 60px;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 32px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links h3, .footer-social h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h3::after, .footer-social h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .example-item {
+                flex-direction: column;
+            }
+            
+            .example-image {
+                flex: 0 0 200px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
+    <!-- Header -->
     <header>
-      <a class="brand" href="index.html" aria-label="Nyote home">
-        <div class="logo" aria-hidden="true">N</div>
-        <div>
-          <div class="title">Nyote</div>
-          <div class="muted" style="font-size:12px">Keyword Strategy</div>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-search"></i> Nyote
+            </a>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#what-are">What Are They</a></li>
+                    <li><a href="#importance">Importance</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                </ul>
+            </nav>
         </div>
-      </a>
-
-      <nav aria-label="Main navigation" class="nav-collapse">
-        <a href="#why" class="muted">Why LT Keywords</a>
-        <a href="#find" class="muted">How to Find</a>
-        <a href="#use" class="muted">How to Use</a>
-        <a href="#contact" class="cta">Get a Strategy</a>
-      </nav>
     </header>
 
-    <main id="home">
-      <div class="hero">
-        <div class="panel reveal" data-r>
-          <h1>Long-Tail Keywords: Why They Matter for SEO</h1>
-          <p class="lead">Target specific user intent, attract qualified visitors, and increase conversion rates — long-tail keyword strategies are how modern SEO wins.</p>
-
-          <div class="features" role="list" aria-hidden="false">
-            <div class="chip">Lower competition</div>
-            <div class="chip">Higher intent</div>
-            <div class="chip">Better conversions</div>
-            <div class="chip">Content opportunities</div>
-          </div>
-
-          <form class="form" id="leadForm" aria-label="Request keyword insight">
-            <input type="email" id="email" placeholder="you@company.com" aria-label="Email address" required>
-            <button type="submit">Get a tip</button>
-          </form>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Long-Tail Keywords: Why They Matter for SEO</h1>
+            <p>Discover how targeting specific, longer search phrases can dramatically improve your website's visibility and conversion rates.</p>
+            <a href="#what-are" class="cta-button">Learn More</a>
         </div>
+    </section>
 
-        <aside class="visual reveal" data-r aria-hidden="true">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-            <div style="font-weight:800">Long-tail impact</div>
-            <div class="muted">Sample metrics</div>
-          </div>
-
-          <div class="graph" role="img" aria-label="Bar chart showing long-tail performance">
-            <div class="row"><div class="dot"></div><div class="bar" style="width:84%"></div></div>
-            <div class="row"><div class="dot"></div><div class="bar" style="width:62%"></div></div>
-            <div class="row"><div class="dot"></div><div class="bar" style="width:95%"></div></div>
-            <div class="row"><div class="dot"></div><div class="bar" style="width:48%"></div></div>
-          </div>
-
-          <div style="display:flex;gap:10px;margin-top:12px">
-            <button class="muted" onclick="scrollToId('use')">How to use</button>
-            <a class="cta" href="#contact">Hire Nyote</a>
-          </div>
-        </aside>
-      </div>
-
-      <section id="why" class="reveal" data-r>
-        <h2 style="color:var(--accent1);margin:0 0 12px 0">Why Long-Tail Keywords?</h2>
-        <p class="muted" style="max-width:900px">Long-tail phrases are longer, more specific search queries. They attract users later in the buying funnel who are ready to act. Focusing on these reduces competition and increases the likelihood of conversion.</p>
-      </section>
-
-      <section id="find" class="reveal" data-r>
-        <h2 style="color:var(--accent2);margin-bottom:14px">How to Find Them</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Use search suggestion</h3>
-            <div class="muted">Inspect Google Autocomplete and 'People also ask' for real user phrases.</div>
-          </div>
-          <div class="card">
-            <h3>Analyze competitor pages</h3>
-            <div class="muted">Look at landing pages that rank and extract long queries they target.</div>
-          </div>
-          <div class="card">
-            <h3>Leverage keyword tools</h3>
-            <div class="muted">Use Ahrefs, SEMrush or free tools to expand seed keywords into long-tail sets.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="use" class="reveal" data-r>
-        <h2 style="color:var(--accent1);margin-bottom:14px">How to Use Long-Tail Keywords</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Build cluster pages</h3>
-            <div class="muted">Create one authoritative pillar and supporting long-tail pages that link to it.</div>
-          </div>
-          <div class="card">
-            <h3>Match intent</h3>
-            <div class="muted">Ensure your content format (guide, review, product) matches the searcher's intent.</div>
-          </div>
-          <div class="card">
-            <h3>Optimize CTAs</h3>
-            <div class="muted">Use context-specific CTAs: a long-tail informational user may want a demo or download.</div>
-          </div>
-        </div>
-      </section>
-
-      <div class="cta-strip reveal" data-r>
-        Want Nyote to map long-tail opportunities for your site? <button style="margin-left:14px;padding:10px 14px;border-radius:10px;border:0;background:#071126;color:var(--accent2);font-weight:700;cursor:pointer" onclick="scrollToId('contact')">Request audit</button>
-      </div>
-
-      <section id="contact" class="reveal" data-r>
-        <h2 style="color:var(--accent2)">Get Started</h2>
-        <div class="panel" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-          <div style="flex:1;min-width:220px">
-            <h3 style="margin:0 0 8px 0">Free 10-term sample</h3>
-            <div class="muted">Enter your site and primary topic — we'll return a short long-tail sample (simulated).</div>
-          </div>
-          <form id="contactForm" style="display:flex;gap:10px;flex:1;min-width:260px">
-            <input type="text" id="site" placeholder="yourwebsite.com" aria-label="Website" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;flex:1">
-            <input type="text" id="topic" placeholder="primary topic" aria-label="Primary topic" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;flex:1">
-            <button type="submit" style="padding:12px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:700;cursor:pointer">Send</button>
-          </form>
-        </div>
-        <div id="contactMsg" class="muted" style="margin-top:12px"></div>
-      </section>
-
-      <footer>
-        <div class="foot-row">
-          <div style="display:flex;align-items:center;gap:12px">
-            <div class="logo" style="width:44px;height:44px;border-radius:10px;display:grid;place-items:center">N</div>
-            <div>
-              <div style="font-weight:700">Nyote</div>
-              <div class="muted" style="font-size:13px">Long-tail & Keyword Strategy</div>
+    <!-- What Are Long-Tail Keywords -->
+    <section id="what-are" class="what-are">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Are Long-Tail Keywords?</h2>
             </div>
-          </div>
-
-          <div class="social" aria-label="Social links">
-            <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 7.5c-.5.2-1 .3-1.6.4.6-.4 1-1 1.2-1.8-.6.4-1.3.6-2 .8-.6-.6-1.3-1-2.1-1-1.6 0-2.7 1.7-2.4 3.2-2.1-.1-4-1.1-5.3-2.6-.7 1.2-.3 2.8 1 3.6-.5 0-1-.1-1.5-.4 0 1.5 1 3 2.6 3.3-.5.1-1 .1-1.5 0 .4 1.4 1.7 2.5 3.3 2.6-1.3 1-2.9 1.6-4.6 1.6H6c1.6 1 3.4 1.6 5.3 1.6 6.3 0 9.8-5.3 9.8-9.8v-.4c.7-.5 1.2-1.2 1.6-2z"/></svg></a>
-            <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6 1.11 6 0 4.88 0 3.5 0 2.12 1.11 1 2.49 1c1.37 0 2.49 1.12 2.49 2.5zM.2 8.98H4.8V24H.2zM7.5 8.98h4.3v2.06h.1c.6-1.1 2.06-2.26 4.24-2.26 4.54 0 5.38 2.98 5.38 6.85V24h-4.6v-7.12c0-1.7 0-3.88-2.36-3.88-2.36 0-2.72 1.83-2.72 3.75V24H7.5z"/></svg></a>
-            <a href="https://wa.me/qr/73POYWZQQBUXC1" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-          </div>
+            <div class="content-grid">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Specific Search Phrases</h3>
+                    <p>Long-tail keywords are longer, more specific search queries that visitors use when they're closer to making a purchase or when they're using voice search.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Lower Search Volume</h3>
+                    <p>They typically have lower search volume than generic keywords but often have higher conversion rates because they target users with specific intent.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Easier to Rank For</h3>
+                    <p>Long-tail keywords are less competitive than generic keywords, making it easier for your website to rank higher in search results.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div style="margin-top:14px;color:var(--muted);font-size:13px">© Nyote <span id="yr"></span> · Turning keywords into customers</div>
-      </footer>
-    </main>
-  </div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Long-Tail Keyword Impact</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-text">of all searches are long-tail keywords</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">3.5x</div>
+                    <div class="stat-text">higher conversion rates than generic keywords</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-text">of searches will be voice-based by 2025</div>
+                </div>
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-text">easier to rank for than short keywords</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-  // Simple progressive reveal
-  (function(){
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const els = Array.from(document.querySelectorAll('[data-r], .card, section, .cta-strip'));
-    function reveal(){
-      const top = window.innerHeight * 0.9;
-      els.forEach(el=>{
-        if(el.getBoundingClientRect().top <= top) el.classList.add('visible');
-      });
-    }
-    if(!prefersReduced){
-      reveal();
-      window.addEventListener('scroll', reveal, {passive:true});
-      window.addEventListener('resize', reveal);
-    } else {
-      els.forEach(e=>e.classList.add('visible'));
-    }
-  })();
+    <!-- Importance Section -->
+    <section id="importance" class="importance">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Long-Tail Keywords Matter</h2>
+            </div>
+            <div class="content-grid">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Targeted Traffic</h3>
+                    <p>Long-tail keywords attract visitors who know exactly what they're looking for, resulting in higher engagement and conversion rates.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Voice Search Optimization</h3>
+                    <p>With the rise of voice assistants, long-tail keywords are becoming increasingly important as people tend to use natural language in voice searches.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Future-Proofing</h3>
+                    <p>As search algorithms become more sophisticated, they're better at understanding user intent behind long, specific queries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  // Lead form (simulated)
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    if(!email || !email.includes('@')){ alert('Please enter a valid email'); return; }
-    this.querySelector('button').textContent='Sending...';
-    setTimeout(()=>{ this.reset(); this.querySelector('button').textContent='Get a tip'; alert('Thanks — sample tips sent (simulated) to '+email); },900);
-  });
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Benefits</h2>
+            </div>
+            <div class="content-grid">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Higher ROI</h3>
+                    <p>Long-tail keywords typically cost less in PPC campaigns while delivering better conversion rates, maximizing your advertising budget.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Better SEO Performance</h3>
+                    <p>Websites that optimize for long-tail keywords often see improved organic search performance across all their content.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Niche Domination</h3>
+                    <p>By targeting specific long-tail keywords, you can establish authority in your niche and become the go-to resource for that topic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  // Contact sample form
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const site = document.getElementById('site').value.trim();
-    const topic = document.getElementById('topic').value.trim();
-    const msg = document.getElementById('contactMsg');
-    if(!site || !topic){ msg.textContent='Please fill both fields.'; return; }
-    msg.textContent='Preparing your sample...';
-    setTimeout(()=>{ msg.textContent='Sample sent to your inbox (simulated).'; this.reset(); },1000);
-  });
+    <!-- Examples Section -->
+    <section id="examples" class="examples">
+        <div class="container">
+            <div class="section-title">
+                <h2>Long-Tail Keyword Examples</h2>
+            </div>
+            <div class="example-item animate-on-scroll">
+                <div class="example-content">
+                    <h3>Generic vs. Long-Tail</h3>
+                    <p><strong>Generic:</strong> "running shoes" - Highly competitive with broad intent</p>
+                    <p><strong>Long-tail:</strong> "best running shoes for flat feet under $100" - Specific intent, higher conversion potential</p>
+                </div>
+                <div class="example-image">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+            </div>
+            <div class="example-item animate-on-scroll">
+                <div class="example-content">
+                    <h3>Question-Based Keywords</h3>
+                    <p><strong>Generic:</strong> "WordPress" - Very broad, unclear intent</p>
+                    <p><strong>Long-tail:</strong> "how to install a WordPress theme step by step" - Clear intent, user looking for guidance</p>
+                </div>
+                <div class="example-image">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+            </div>
+            <div class="example-item animate-on-scroll">
+                <div class="example-content">
+                    <h3>Location-Based Keywords</h3>
+                    <p><strong>Generic:</strong> "pizza delivery" - Local intent but not specific</p>
+                    <p><strong>Long-tail:</strong> "pizza delivery open late in downtown Chicago" - Very specific local intent</p>
+                </div>
+                <div class="example-image">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  // helper
-  function scrollToId(id){
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth'});
-  }
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-search"></i> Nyote
+                    </div>
+                    <p>Nyote is your go-to resource for understanding and implementing effective SEO strategies, with a focus on long-tail keyword optimization.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#what-are">What Are They</a></li>
+                        <li><a href="#importance">Importance</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Nyote. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  // set year
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Scroll Animation
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Initial check on page load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
