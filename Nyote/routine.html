@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Development Routine | Nyote</title>
+    <title>IT Support Kenya | Nyote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -15,9 +15,9 @@
         }
 
         :root {
-            --primary: #6C63FF;
-            --secondary: #FF6584;
-            --accent: #4ECDC4;
+            --primary: #E74C3C;
+            --secondary: #3498DB;
+            --accent: #F39C12;
             --dark: #1A1A2E;
             --light: #F7F9FC;
             --gray: #6B7280;
@@ -82,7 +82,7 @@
             color: white;
             font-weight: bold;
             font-size: 22px;
-            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
         }
 
         .logo-text {
@@ -137,7 +137,7 @@
         /* Hero Section */
         .hero {
             padding: 120px 0 100px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            background: linear-gradient(135deg, #ffe6e6 0%, #e6f0ff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -150,7 +150,7 @@
             width: 600px;
             height: 600px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
             z-index: 0;
         }
 
@@ -209,14 +209,14 @@
             font-weight: 700;
             font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
             position: relative;
             overflow: hidden;
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 15px 25px rgba(231, 76, 60, 0.4);
         }
 
         .cta-button::after {
@@ -250,7 +250,7 @@
             }
         }
 
-        .routine-visual {
+        .support-visual {
             width: 100%;
             max-width: 500px;
             background: white;
@@ -261,7 +261,7 @@
             transition: var(--transition);
         }
 
-        .routine-visual:hover {
+        .support-visual:hover {
             transform: perspective(1000px) rotateY(0) rotateX(0);
         }
 
@@ -280,15 +280,15 @@
         }
 
         .red {
-            background-color: var(--secondary);
+            background-color: var(--primary);
         }
 
         .yellow {
-            background-color: #FFD166;
+            background-color: var(--accent);
         }
 
         .green {
-            background-color: var(--accent);
+            background-color: #2ECC71;
         }
 
         .visual-title {
@@ -302,18 +302,18 @@
             padding: 25px;
         }
 
-        .routine-item {
+        .support-item {
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px dashed #e0e0e0;
         }
 
-        .routine-item:last-child {
+        .support-item:last-child {
             margin-bottom: 0;
             border-bottom: none;
         }
 
-        .routine-title {
+        .support-title {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 8px;
@@ -323,18 +323,18 @@
             gap: 10px;
         }
 
-        .routine-title i {
+        .support-title i {
             color: var(--primary);
         }
 
-        .routine-desc {
+        .support-desc {
             font-size: 14px;
             color: var(--gray);
             line-height: 1.5;
         }
 
-        /* Weekday Section */
-        .weekdays {
+        /* Services Section */
+        .services {
             padding: 100px 0;
             background-color: white;
         }
@@ -371,13 +371,13 @@
             font-size: 1.2rem;
         }
 
-        .weekdays-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
         }
 
-        .day-card {
+        .service-card {
             background: white;
             border-radius: 20px;
             padding: 40px 30px;
@@ -389,7 +389,7 @@
             text-align: center;
         }
 
-        .day-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -399,12 +399,12 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
-        .day-card:hover {
+        .service-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .day-icon {
+        .service-icon {
             width: 80px;
             height: 80px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -415,51 +415,32 @@
             margin: 0 auto 25px;
             color: white;
             font-size: 32px;
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
         }
 
-        .day-card h3 {
+        .service-card h3 {
             font-size: 1.6rem;
             margin-bottom: 15px;
             color: var(--dark);
         }
 
-        .day-card p {
+        .service-card p {
             color: var(--gray);
-            margin-bottom: 20px;
         }
 
-        .day-schedule {
-            list-style: none;
-            text-align: left;
-        }
-
-        .day-schedule li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.95rem;
-        }
-
-        .day-schedule li i {
-            color: var(--secondary);
-            margin-top: 3px;
-        }
-
-        /* Weekend Section */
-        .weekend {
+        /* Kenya Support Section */
+        .kenya-support {
             padding: 100px 0;
             background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
         }
 
-        .weekend-container {
+        .kenya-container {
             display: flex;
             flex-direction: column;
             gap: 60px;
         }
 
-        .weekend-day {
+        .support-step {
             display: flex;
             align-items: center;
             gap: 50px;
@@ -468,22 +449,22 @@
             transition: all 0.8s ease;
         }
 
-        .weekend-day.visible {
+        .support-step.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .weekend-day:nth-child(even) {
+        .support-step:nth-child(even) {
             flex-direction: row-reverse;
         }
 
-        .day-visual {
+        .step-visual {
             flex: 1;
             display: flex;
             justify-content: center;
         }
 
-        .day-number {
+        .step-number {
             width: 90px;
             height: 90px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -495,42 +476,42 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
         }
 
-        .day-content {
+        .step-content {
             flex: 1;
         }
 
-        .day-content h3 {
+        .step-content h3 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--dark);
         }
 
-        .day-content p {
+        .step-content p {
             color: var(--gray);
             margin-bottom: 25px;
             font-size: 1.1rem;
         }
 
-        .day-activities {
+        .step-list {
             list-style: none;
         }
 
-        .day-activities li {
+        .step-list li {
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
             gap: 10px;
         }
 
-        .day-activities li i {
-            color: var(--accent);
+        .step-list li i {
+            color: var(--secondary);
             margin-top: 5px;
         }
 
-        .day-image {
+        .step-image {
             width: 100%;
             max-width: 450px;
             border-radius: 15px;
@@ -538,23 +519,23 @@
             transition: var(--transition);
         }
 
-        .day-image:hover {
+        .step-image:hover {
             transform: scale(1.05);
         }
 
-        /* Skills Section */
-        .skills {
+        /* Solutions Section */
+        .solutions {
             padding: 100px 0;
             background-color: white;
         }
 
-        .skills-grid {
+        .solutions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .skill-card {
+        .solution-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
@@ -564,12 +545,12 @@
             border: 1px solid #f0f0f0;
         }
 
-        .skill-card:hover {
+        .solution-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .skill-icon {
+        .solution-icon {
             width: 70px;
             height: 70px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -582,15 +563,77 @@
             font-size: 28px;
         }
 
-        .skill-card h3 {
+        .solution-card h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--dark);
         }
 
-        .skill-card p {
+        .solution-card p {
             color: var(--gray);
             font-size: 0.95rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f8ff 0%, #e6eeff 100%);
+        }
+
+        .industries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .industry-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .industry-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .industry-card p {
+            color: var(--gray);
         }
 
         /* CTA Section */
@@ -773,7 +816,7 @@
                 max-width: 100%;
             }
 
-            .weekend-day {
+            .support-step {
                 flex-direction: column !important;
                 text-align: center;
                 gap: 30px;
@@ -810,7 +853,7 @@
                 font-size: 2rem;
             }
 
-            .day-card {
+            .service-card {
                 padding: 30px 20px;
             }
 
@@ -828,17 +871,21 @@
                 font-size: 2.2rem;
             }
             
-            .weekdays-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .day-number {
+            .step-number {
                 width: 70px;
                 height: 70px;
                 font-size: 2rem;
             }
             
-            .skills-grid {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .industries-container {
                 grid-template-columns: 1fr;
             }
         }
@@ -854,9 +901,9 @@
             </a>
             <nav class="nav-links">
                 <a href="#home">Home</a>
-                <a href="#weekdays">Weekdays</a>
-                <a href="#weekend">Weekend</a>
-                <a href="#skills">Skills</a>
+                <a href="#services">Services</a>
+                <a href="#kenya">Kenya Support</a>
+                <a href="#solutions">Solutions</a>
             </nav>
             <div class="mobile-menu">☰</div>
         </div>
@@ -866,34 +913,34 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>My Web Development <span>Daily Routine</span></h1>
-                <p>A structured daily schedule balancing web development, client projects, graphic design, and teaching programming to maximize productivity and creativity.</p>
-                <a href="#weekdays" class="cta-button">Explore My Workflow</a>
+                <h1>IT Support <span>Kenya</span></h1>
+                <p>Reliable IT support and technical services for Kenyan businesses. 24/7 support, rapid response times, and expert solutions tailored for the local market.</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
             </div>
             <div class="hero-visual">
-                <div class="routine-visual">
+                <div class="support-visual">
                     <div class="visual-header">
                         <div class="visual-dot red"></div>
                         <div class="visual-dot yellow"></div>
                         <div class="visual-dot green"></div>
-                        <div class="visual-title">Development Workflow</div>
+                        <div class="visual-title">IT Support Dashboard</div>
                     </div>
                     <div class="visual-content">
-                        <div class="routine-item">
-                            <div class="routine-title"><i class="fas fa-code"></i> Web Development</div>
-                            <div class="routine-desc">Building responsive websites, web applications, and digital solutions using modern technologies.</div>
+                        <div class="support-item">
+                            <div class="support-title"><i class="fas fa-headset"></i> 24/7 Support</div>
+                            <div class="support-desc">Round-the-clock technical support with local response teams across Kenya.</div>
                         </div>
-                        <div class="routine-item">
-                            <div class="routine-title"><i class="fas fa-briefcase"></i> Client Projects</div>
-                            <div class="routine-desc">Working on client websites, e-commerce solutions, and custom web applications.</div>
+                        <div class="support-item">
+                            <div class="support-title"><i class="fas fa-tools"></i> On-site Service</div>
+                            <div class="support-desc">Rapid on-site technical support in Nairobi, Mombasa, and major Kenyan cities.</div>
                         </div>
-                        <div class="routine-item">
-                            <div class="routine-title"><i class="fas fa-palette"></i> Graphic Design</div>
-                            <div class="routine-desc">Creating UI/UX designs, logos, branding materials, and visual content.</div>
+                        <div class="support-item">
+                            <div class="support-title"><i class="fas fa-shield-alt"></i> Cybersecurity</div>
+                            <div class="support-desc">Comprehensive security solutions protecting Kenyan businesses from cyber threats.</div>
                         </div>
-                        <div class="routine-item">
-                            <div class="routine-title"><i class="fas fa-chalkboard-teacher"></i> Teaching Programming</div>
-                            <div class="routine-desc">Creating tutorials, courses, and mentoring aspiring developers.</div>
+                        <div class="support-item">
+                            <div class="support-title"><i class="fas fa-network-wired"></i> Network Solutions</div>
+                            <div class="support-desc">Reliable network infrastructure design and maintenance for Kenyan businesses.</div>
                         </div>
                     </div>
                 </div>
@@ -901,150 +948,119 @@
         </div>
     </section>
 
-    <!-- Weekday Section -->
-    <section class="weekdays" id="weekdays">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>My Weekday Development Schedule</h2>
-                <p>Structured days from Monday to Friday focused on web development, client work, and creative projects</p>
+                <h2>Our IT Support Services</h2>
+                <p>Comprehensive IT solutions designed specifically for Kenyan businesses and organizations</p>
             </div>
-            <div class="weekdays-grid">
-                <div class="day-card">
-                    <div class="day-icon">
-                        <i class="fas fa-code"></i>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <h3>Monday - Development Day</h3>
-                    <p>Focus on coding new features and web applications</p>
-                    <ul class="day-schedule">
-                        <li><i class="fas fa-check"></i> 6:00 AM - Wake up & planning</li>
-                        <li><i class="fas fa-check"></i> 7:00 AM - Code review & setup</li>
-                        <li><i class="fas fa-check"></i> 9:00 AM - Frontend development</li>
-                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & tech reading</li>
-                        <li><i class="fas fa-check"></i> 2:00 PM - Backend development</li>
-                        <li><i class="fas fa-check"></i> 4:00 PM - Testing & debugging</li>
-                        <li><i class="fas fa-check"></i> 6:00 PM - Project documentation</li>
-                        <li><i class="fas fa-check"></i> 8:00 PM - Learning new frameworks</li>
-                    </ul>
+                    <h3>Help Desk Support</h3>
+                    <p>24/7 technical support desk with local Kenyan technicians for immediate issue resolution.</p>
                 </div>
-                <div class="day-card">
-                    <div class="day-icon">
-                        <i class="fas fa-briefcase"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h3>Tuesday - Client Work</h3>
-                    <p>Dedicated to client projects and meetings</p>
-                    <ul class="day-schedule">
-                        <li><i class="fas fa-check"></i> 6:30 AM - Client email review</li>
-                        <li><i class="fas fa-check"></i> 8:00 AM - Client project work</li>
-                        <li><i class="fas fa-check"></i> 10:00 AM - Client meetings</li>
-                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & project planning</li>
-                        <li><i class="fas fa-check"></i> 2:00 PM - Implementation work</li>
-                        <li><i class="fas fa-check"></i> 4:00 PM - Progress updates</li>
-                        <li><i class="fas fa-check"></i> 6:00 PM - Client support</li>
-                        <li><i class="fas fa-check"></i> 8:00 PM - Industry research</li>
-                    </ul>
+                    <h3>On-site Support</h3>
+                    <p>Rapid response technical teams available across major Kenyan cities for hands-on assistance.</p>
                 </div>
-                <div class="day-card">
-                    <div class="day-icon">
-                        <i class="fas fa-palette"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Wednesday - Design Day</h3>
-                    <p>Creative work on UI/UX and graphic design</p>
-                    <ul class="day-schedule">
-                        <li><i class="fas fa-check"></i> 6:00 AM - Design inspiration</li>
-                        <li><i class="fas fa-check"></i> 8:00 AM - UI/UX design work</li>
-                        <li><i class="fas fa-check"></i> 10:00 AM - Branding projects</li>
-                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & design trends</li>
-                        <li><i class="fas fa-check"></i> 2:00 PM - Graphic design work</li>
-                        <li><i class="fas fa-check"></i> 4:00 PM - Prototype creation</li>
-                        <li><i class="fas fa-check"></i> 6:00 PM - Design system updates</li>
-                        <li><i class="fas fa-check"></i> 8:00 PM - Creative exploration</li>
-                    </ul>
+                    <h3>Cybersecurity</h3>
+                    <p>Comprehensive security solutions including firewall management, antivirus, and threat monitoring.</p>
                 </div>
-                <div class="day-card">
-                    <div class="day-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3>Thursday - Teaching Day</h3>
-                    <p>Creating educational content and mentoring</p>
-                    <ul class="day-schedule">
-                        <li><i class="fas fa-check"></i> 6:30 AM - Course planning</li>
-                        <li><i class="fas fa-check"></i> 8:00 AM - Tutorial creation</li>
-                        <li><i class="fas fa-check"></i> 10:00 AM - Code examples</li>
-                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & research</li>
-                        <li><i class="fas fa-check"></i> 2:00 PM - Video recording</li>
-                        <li><i class="fas fa-check"></i> 4:00 PM - Student mentoring</li>
-                        <li><i class="fas fa-check"></i> 6:00 PM - Content editing</li>
-                        <li><i class="fas fa-check"></i> 8:00 PM - Community engagement</li>
-                    </ul>
+                    <h3>Network Management</h3>
+                    <p>Design, implementation, and maintenance of reliable network infrastructure for Kenyan businesses.</p>
                 </div>
-                <div class="day-card">
-                    <div class="day-icon">
-                        <i class="fas fa-tasks"></i>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
                     </div>
-                    <h3>Friday - Project Wrap-up</h3>
-                    <p>Completion, testing, and planning for next week</p>
-                    <ul class="day-schedule">
-                        <li><i class="fas fa-check"></i> 6:00 AM - Weekly review</li>
-                        <li><i class="fas fa-check"></i> 8:00 AM - Project completion</li>
-                        <li><i class="fas fa-check"></i> 10:00 AM - Testing & QA</li>
-                        <li><i class="fas fa-check"></i> 1:00 PM - Lunch & reflection</li>
-                        <li><i class="fas fa-check"></i> 2:00 PM - Deployment work</li>
-                        <li><i class="fas fa-check"></i> 4:00 PM - Next week planning</li>
-                        <li><i class="fas fa-check"></i> 5:00 PM - Early finish</li>
-                        <li><i class="fas fa-check"></i> 7:00 PM - Tech community events</li>
-                    </ul>
+                    <h3>Server Management</h3>
+                    <p>Professional server setup, maintenance, and optimization services for Kenyan enterprises.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Services</h3>
+                    <p>Migration, management, and optimization of cloud solutions with local data centers in Kenya.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Weekend Section -->
-    <section class="weekend" id="weekend">
+    <!-- Kenya Support Section -->
+    <section class="kenya-support" id="kenya">
         <div class="container">
             <div class="section-title">
-                <h2>Weekend Rest & Skill Development</h2>
-                <p>Saturday and Sunday are for rest, learning, and personal projects</p>
+                <h2>IT Support in Kenya</h2>
+                <p>Understanding the unique IT landscape and support needs in the Kenyan market</p>
             </div>
-            <div class="weekend-container">
-                <div class="weekend-day">
-                    <div class="day-content">
-                        <div class="day-number">Sat</div>
-                        <h3>Saturday - Learning & Side Projects</h3>
-                        <p>A balance of rest, learning new technologies, and working on passion projects.</p>
-                        <ul class="day-activities">
-                            <li><i class="fas fa-check"></i> 8:00 AM - Wake up naturally</li>
-                            <li><i class="fas fa-check"></i> 9:00 AM - Breakfast & tech news</li>
-                            <li><i class="fas fa-check"></i> 10:00 AM - Learning new frameworks</li>
-                            <li><i class="fas fa-check"></i> 12:00 PM - Personal projects</li>
-                            <li><i class="fas fa-check"></i> 2:00 PM - Lunch & relaxation</li>
-                            <li><i class="fas fa-check"></i> 4:00 PM - Open source contributions</li>
-                            <li><i class="fas fa-check"></i> 7:00 PM - Movie or gaming</li>
+            <div class="kenya-container">
+                <div class="support-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Local Presence & Understanding</h3>
+                        <p>Our deep understanding of Kenya's business environment enables us to provide context-aware IT solutions.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Teams located in Nairobi, Mombasa, and Kisumu</li>
+                            <li><i class="fas fa-check"></i> Understanding of local business practices</li>
+                            <li><i class="fas fa-check"></i> Knowledge of Kenyan regulatory requirements</li>
+                            <li><i class="fas fa-check"></i> Experience with local infrastructure challenges</li>
                         </ul>
                     </div>
-                    <div class="day-visual">
-                        <div class="day-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
-                            <i class="fas fa-laptop-code"></i>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                     </div>
                 </div>
-                <div class="weekend-day">
-                    <div class="day-content">
-                        <div class="day-number">Sun</div>
-                        <h3>Sunday - Rest & Preparation</h3>
-                        <p>Complete rest, family time, and gentle preparation for the week ahead.</p>
-                        <ul class="day-activities">
-                            <li><i class="fas fa-check"></i> 8:30 AM - Leisurely wake up</li>
-                            <li><i class="fas fa-check"></i> 10:00 AM - Family breakfast</li>
-                            <li><i class="fas fa-check"></i> 11:00 AM - Outdoor activity</li>
-                            <li><i class="fas fa-check"></i> 1:00 PM - Family lunch</li>
-                            <li><i class="fas fa-check"></i> 3:00 PM - Reading & relaxation</li>
-                            <li><i class="fas fa-check"></i> 5:00 PM - Light week planning</li>
-                            <li><i class="fas fa-check"></i> 7:00 PM - Early dinner & early bedtime</li>
+                <div class="support-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Infrastructure Challenges</h3>
+                        <p>We specialize in overcoming Kenya's unique IT infrastructure challenges with tailored solutions.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Solutions for intermittent power supply</li>
+                            <li><i class="fas fa-check"></i> Optimization for variable internet speeds</li>
+                            <li><i class="fas fa-check"></i> Mobile-first support strategies</li>
+                            <li><i class="fas fa-check"></i> Backup and redundancy planning</li>
                         </ul>
                     </div>
-                    <div class="day-visual">
-                        <div class="day-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
-                            <i class="fas fa-couch"></i>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--secondary), var(--accent)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="support-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Cost-Effective Solutions</h3>
+                        <p>We provide affordable IT support options that deliver maximum value for Kenyan businesses.</p>
+                        <ul class="step-list">
+                            <li><i class="fas fa-check"></i> Flexible pricing models</li>
+                            <li><i class="fas fa-check"></i> Local hardware sourcing</li>
+                            <li><i class="fas fa-check"></i> Preventive maintenance plans</li>
+                            <li><i class="fas fa-check"></i> Scalable support packages</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-image" style="background: linear-gradient(135deg, var(--accent), var(--primary)); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
                     </div>
                 </div>
@@ -1052,55 +1068,109 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
         <div class="container">
             <div class="section-title">
-                <h2>My Development Skills</h2>
-                <p>Technologies and tools I work with daily in my web development routine</p>
+                <h2>Our IT Solutions</h2>
+                <p>Comprehensive technology solutions for different business needs in Kenya</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>Frontend Development</h3>
-                    <p>HTML5, CSS3, JavaScript, React, Vue.js, responsive design, and modern CSS frameworks.</p>
+                    <h3>Managed IT Services</h3>
+                    <p>Complete IT management including monitoring, maintenance, and proactive support for Kenyan businesses.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-node-js"></i>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Express, MongoDB, PostgreSQL, REST APIs, authentication, and server management.</p>
+                    <h3>Data Backup & Recovery</h3>
+                    <p>Secure data backup solutions and disaster recovery planning to protect Kenyan business data.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Wireless Solutions</h3>
+                    <p>Professional WiFi network design and implementation for offices and commercial spaces in Kenya.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>VoIP Systems</h3>
+                    <p>Cost-effective voice over IP phone systems tailored for Kenyan business communication needs.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Security Systems</h3>
+                    <p>CCTV and access control systems integration with IT infrastructure for comprehensive security.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Responsive Design</h3>
-                    <p>Mobile-first approach, cross-browser compatibility, and progressive web applications.</p>
+                    <h3>Mobile Device Management</h3>
+                    <p>Secure management of mobile devices and tablets for Kenyan business workforces.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-paint-brush"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <p>IT support solutions tailored for key sectors in the Kenyan economy</p>
+            </div>
+            <div class="industries-container">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-university"></i>
                     </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Figma, Adobe XD, user research, wireframing, prototyping, and design systems.</p>
+                    <h3>Banking & Finance</h3>
+                    <p>Secure IT infrastructure and compliance solutions for financial institutions in Kenya.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-rocket"></i>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>DevOps & Deployment</h3>
-                    <p>Git, GitHub, CI/CD, Docker, AWS, Vercel, Netlify, and performance optimization.</p>
+                    <h3>Healthcare</h3>
+                    <p>HIPAA-compliant IT systems and support for hospitals and medical facilities across Kenya.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Teaching & Mentoring</h3>
-                    <p>Creating courses, tutorials, documentation, and mentoring aspiring developers.</p>
+                    <h3>Education</h3>
+                    <p>Technology solutions for schools, colleges, and universities including computer labs and networks.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail & Hospitality</h3>
+                    <p>Point of sale systems, inventory management, and customer service technology solutions.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Industrial IT systems, automation, and production line technology support services.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics & Transport</h3>
+                    <p>Fleet management, tracking systems, and logistics technology solutions for Kenyan companies.</p>
                 </div>
             </div>
         </div>
@@ -1109,9 +1179,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container cta-content">
-            <h2>Start Your Development Journey</h2>
-            <p>Build a routine that balances coding, creativity, and continuous learning in web development.</p>
-            <a href="webdevelopment.html" class="cta-button-light">Begin Today</a>
+            <h2>Need Reliable IT Support in Kenya?</h2>
+            <p>Join hundreds of Kenyan businesses that trust us with their technology infrastructure and support needs.</p>
+            <a href="#" class="cta-button-light">Get IT Support Now</a>
         </div>
     </section>
 
@@ -1120,48 +1190,48 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <a href="index.html" class="logo">
+                    <a href="#" class="logo">
                         <div class="logo-icon">N</div>
                         <div class="logo-text">Nyote</div>
                     </a>
-                    <p>Documenting my journey as a full-stack developer, designer, and educator. Sharing insights on web development, client work, and teaching programming.</p>
+                    <p>Leading IT support provider in Kenya, offering reliable, affordable, and professional technology solutions with local expertise and 24/7 support availability.</p>
                     <div class="social-links">
-                        <a href="https://github.com/Mr-teslaman/" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mr-teslaman-863465388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://x.com/MrTeslaman?t=iogpmlVMV277mtulX4DeDw&s=09" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/@MrTeslaman-u7e" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#weekdays"><i class="fas fa-chevron-right"></i> Weekdays</a></li>
-                        <li><a href="#weekend"><i class="fas fa-chevron-right"></i> Weekend</a></li>
-                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#kenya"><i class="fas fa-chevron-right"></i> Kenya Support</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Development Areas</h3>
+                    <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="webdevelopment.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Client Projects</a></li>
-                        <li><a href="https://www.canva.com/design/DAG1eHFQS2A/MxgTjUQRQg4ZDih3LwobBw/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkMifX19LCJBIjp7IkEiOiJkb3dubG9hZF9wbmciLCJGIjp0cnVlfSwiRyI6eyJEIjp7IkQiOnsiQT8iOiJBIiwiQSI6IkIifX19fQ"><i class="fas fa-chevron-right"></i> Graphic Design</a></li>
-                        <li><a href=""><i class="fas fa-chevron-right"></i> Teaching Programming</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Desk Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> On-site Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cybersecurity</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Network Management</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Development Resources</h3>
+                    <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li><a href=""><i class="fas fa-chevron-right"></i> Coding Tutorials</a></li>
-                        <li><a href="https://www.canva.com/design/DAG1eHFQS2A/MxgTjUQRQg4ZDih3LwobBw/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkMifX19LCJBIjp7IkEiOiJkb3dubG9hZF9wbmciLCJGIjp0cnVlfSwiRyI6eyJEIjp7IkQiOnsiQT8iOiJBIiwiQSI6IkIifX19fQ"><i class="fas fa-chevron-right"></i> Design Resources</a></li>
-                        <li><a href=""><i class="fas fa-chevron-right"></i> Project Templates</a></li>
-                        <li><a href="https://wa.me/qr/73POYWZQQBUXC1"><i class="fas fa-chevron-right"></i> Learning Paths</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +254 700 123 456</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> support@nyote.co.ke</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Support Available</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Nyote Development Routine. All rights reserved. | Building the Web, One Day at a Time</p>
+                <p>&copy; 2023 Nyote IT Support Kenya. All rights reserved. | Reliable • Affordable • Professional IT Solutions</p>
             </div>
         </div>
     </footer>
@@ -1169,8 +1239,8 @@
     <script>
         // Scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            // Weekend day animation on scroll
-            const days = document.querySelectorAll('.weekend-day');
+            // Support step animation on scroll
+            const steps = document.querySelectorAll('.support-step');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1180,8 +1250,8 @@
                 });
             }, { threshold: 0.3 });
             
-            days.forEach(day => {
-                observer.observe(day);
+            steps.forEach(step => {
+                observer.observe(step);
             });
 
             // Mobile menu toggle

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyota Cyber - Payment Integration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Colors */
+        :root {
+            --primary: #1BAE49; /* Safaricom Green */
+            --secondary: #F7931E; /* Jumia Orange */
+            --accent: #0077B6; /* Deep Blue for trust */
+            --purple: #8A2BE2; /* Purple for highlights */
+            --neutral-white: #FFFFFF;
+            --neutral-light: #F2F2F2;
+            --neutral-dark: #1A1A1A;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--neutral-dark);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: var(--neutral-white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #158c3a;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d87c15;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #0066a1;
+        }
+
+        .btn-purple {
+            background-color: var(--purple);
+        }
+
+        .btn-purple:hover {
+            background-color: #7a1fd1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--neutral-white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-icons a {
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .nav-icons a:hover {
+            color: var(--primary);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Payment Hero */
+        .payment-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--neutral-white);
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .payment-hero h1 {
+            color: var(--neutral-white);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .payment-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Payment Methods Section */
+        .payment-methods {
+            padding: 60px 0;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .payment-card {
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .payment-card.mpesa .payment-icon {
+            color: #1BAE49;
+        }
+
+        .payment-card.flutterwave .payment-icon {
+            color: #F7931E;
+        }
+
+        .payment-card.paypal .payment-icon {
+            color: #0070BA;
+        }
+
+        .payment-card.stripe .payment-icon {
+            color: #635BFF;
+        }
+
+        .payment-features {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .payment-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Payment Demo Section */
+        .payment-demo {
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .demo-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .demo-tab {
+            padding: 12px 24px;
+            background-color: var(--neutral-light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .demo-tab.active {
+            background-color: var(--primary);
+            color: var(--neutral-white);
+        }
+
+        .demo-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .demo-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(27, 174, 73, 0.2);
+        }
+
+        .amount-input {
+            position: relative;
+        }
+
+        .amount-input::before {
+            content: 'KSh';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 500;
+        }
+
+        .amount-input .form-control {
+            padding-left: 50px;
+        }
+
+        .phone-input {
+            position: relative;
+        }
+
+        .phone-input::before {
+            content: '+254';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 500;
+        }
+
+        .phone-input .form-control {
+            padding-left: 60px;
+        }
+
+        .payment-status {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .status-success {
+            background-color: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+        }
+
+        .status-error {
+            background-color: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+        }
+
+        .status-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Integration Section */
+        .integration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--neutral-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--neutral-white);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: var(--neutral-white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .payment-hero h1 {
+                font-size: 2rem;
+            }
+
+            .payment-demo {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .payment-hero {
+                padding: 130px 0 80px;
+            }
+
+            .payment-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .demo-tabs {
+                flex-direction: column;
+            }
+
+            .demo-tab {
+                width: 100%;
+            }
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-star"></i>
+                    Nyota <span>Cyber</span>
+                </a>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Cyber Services</a></li>
+                    <li><a href="index.html#electronics">Electronics Shop</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#integration">Payment Integration</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <div class="user-profile">
+                        <div class="user-avatar">JD</div>
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Payment Hero -->
+    <section class="payment-hero">
+        <div class="container">
+            <h1>Secure Payment Integration</h1>
+            <p>Multiple payment options for your convenience. Fast, secure, and reliable transactions.</p>
+            <div class="hero-buttons">
+                <a href="#payment-methods" class="btn">View Payment Methods</a>
+                <a href="#demo" class="btn btn-secondary">Try Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section id="payment-methods" class="payment-methods">
+        <div class="container">
+            <h2 class="section-title">Our Payment Methods</h2>
+            <div class="payment-grid">
+                <div class="payment-card mpesa fade-in">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>M-Pesa Daraja API</h3>
+                    <p>Kenya's most popular mobile money service with STK Push and C2B payments</p>
+                    <ul class="payment-features">
+                        <li><i class="fas fa-check"></i> STK Push for instant payments</li>
+                        <li><i class="fas fa-check"></i> C2B payments integration</li>
+                        <li><i class="fas fa-check"></i> Real-time transaction status</li>
+                        <li><i class="fas fa-check"></i> Secure and reliable</li>
+                    </ul>
+                    <button class="btn btn-secondary try-payment" data-method="mpesa">Try M-Pesa</button>
+                </div>
+                
+                <div class="payment-card flutterwave fade-in">
+                    <div class="payment-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>Flutterwave</h3>
+                    <p>Pan-African payment solution supporting multiple payment methods</p>
+                    <ul class="payment-features">
+                        <li><i class="fas fa-check"></i> M-Pesa integration</li>
+                        <li><i class="fas fa-check"></i> Card payments (Visa, MasterCard)</li>
+                        <li><i class="fas fa-check"></i> Airtel Money support</li>
+                        <li><i class="fas fa-check"></i> Bank transfers</li>
+                    </ul>
+                    <button class="btn btn-secondary try-payment" data-method="flutterwave">Try Flutterwave</button>
+                </div>
+                
+                <div class="payment-card paypal fade-in">
+                    <div class="payment-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h3>PayPal</h3>
+                    <p>Global payment solution for international customers</p>
+                    <ul class="payment-features">
+                        <li><i class="fas fa-check"></i> International card support</li>
+                        <li><i class="fas fa-check"></i> Digital wallet payments</li>
+                        <li><i class="fas fa-check"></i> Buyer and seller protection</li>
+                        <li><i class="fas fa-check"></i> Multi-currency support</li>
+                    </ul>
+                    <button class="btn btn-accent try-payment" data-method="paypal">Try PayPal</button>
+                </div>
+                
+                <div class="payment-card stripe fade-in">
+                    <div class="payment-icon">
+                        <i class="fab fa-stripe"></i>
+                    </div>
+                    <h3>Stripe</h3>
+                    <p>Developer-friendly payment platform for online businesses</p>
+                    <ul class="payment-features">
+                        <li><i class="fas fa-check"></i> Global card payments</li>
+                        <li><i class="fas fa-check"></i> Digital wallet integration</li>
+                        <li><i class="fas fa-check"></i> Recurring billing</li>
+                        <li><i class="fas fa-check"></i> Advanced fraud protection</li>
+                    </ul>
+                    <button class="btn btn-purple try-payment" data-method="stripe">Try Stripe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Demo Section -->
+    <section id="demo" class="payment-demo-section">
+        <div class="container">
+            <h2 class="section-title">Payment Demo</h2>
+            <div class="payment-demo">
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-demo="mpesa">M-Pesa</button>
+                    <button class="demo-tab" data-demo="flutterwave">Flutterwave</button>
+                    <button class="demo-tab" data-demo="paypal">PayPal</button>
+                    <button class="demo-tab" data-demo="stripe">Stripe</button>
+                </div>
+                
+                <!-- M-Pesa Demo -->
+                <div class="demo-content active" id="mpesa-demo">
+                    <h3>M-Pesa Payment Demo</h3>
+                    <p>Enter your phone number and amount to simulate an M-Pesa STK Push payment.</p>
+                    
+                    <form class="demo-form" id="mpesa-form">
+                        <div class="form-group">
+                            <label for="mpesa-amount">Amount (KSh)</label>
+                            <div class="amount-input">
+                                <input type="number" id="mpesa-amount" class="form-control" placeholder="1000" min="10" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mpesa-phone">Phone Number</label>
+                            <div class="phone-input">
+                                <input type="tel" id="mpesa-phone" class="form-control" placeholder="712345678" pattern="[0-9]{9}" required>
+                            </div>
+                            <small>Enter your phone number without the country code (e.g., 712345678)</small>
+                        </div>
+                        <button type="submit" class="btn">Simulate M-Pesa Payment</button>
+                        <div class="spinner" id="mpesa-spinner"></div>
+                    </form>
+                    
+                    <div class="payment-status" id="mpesa-status">
+                        <!-- Status message will appear here -->
+                    </div>
+                </div>
+                
+                <!-- Flutterwave Demo -->
+                <div class="demo-content" id="flutterwave-demo">
+                    <h3>Flutterwave Payment Demo</h3>
+                    <p>Select your preferred payment method and enter payment details.</p>
+                    
+                    <form class="demo-form" id="flutterwave-form">
+                        <div class="form-group">
+                            <label for="flutterwave-amount">Amount (KSh)</label>
+                            <div class="amount-input">
+                                <input type="number" id="flutterwave-amount" class="form-control" placeholder="1000" min="10" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="flutterwave-method">Payment Method</label>
+                            <select id="flutterwave-method" class="form-control" required>
+                                <option value="">Select payment method</option>
+                                <option value="mpesa">M-Pesa</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="airtel">Airtel Money</option>
+                                <option value="bank">Bank Transfer</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="flutterwave-phone-group" style="display: none;">
+                            <label for="flutterwave-phone">Phone Number</label>
+                            <div class="phone-input">
+                                <input type="tel" id="flutterwave-phone" class="form-control" placeholder="712345678">
+                            </div>
+                        </div>
+                        <div class="form-group" id="flutterwave-card-group" style="display: none;">
+                            <label for="flutterwave-card">Card Number</label>
+                            <input type="text" id="flutterwave-card" class="form-control" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <button type="submit" class="btn">Process Payment</button>
+                        <div class="spinner" id="flutterwave-spinner"></div>
+                    </form>
+                    
+                    <div class="payment-status" id="flutterwave-status">
+                        <!-- Status message will appear here -->
+                    </div>
+                </div>
+                
+                <!-- PayPal Demo -->
+                <div class="demo-content" id="paypal-demo">
+                    <h3>PayPal Payment Demo</h3>
+                    <p>Enter amount and email to simulate a PayPal payment.</p>
+                    
+                    <form class="demo-form" id="paypal-form">
+                        <div class="form-group">
+                            <label for="paypal-amount">Amount (USD)</label>
+                            <div class="amount-input">
+                                <input type="number" id="paypal-amount" class="form-control" placeholder="10" min="1" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="paypal-email">PayPal Email</label>
+                            <input type="email" id="paypal-email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        <button type="submit" class="btn">Process PayPal Payment</button>
+                        <div class="spinner" id="paypal-spinner"></div>
+                    </form>
+                    
+                    <div class="payment-status" id="paypal-status">
+                        <!-- Status message will appear here -->
+                    </div>
+                </div>
+                
+                <!-- Stripe Demo -->
+                <div class="demo-content" id="stripe-demo">
+                    <h3>Stripe Payment Demo</h3>
+                    <p>Enter card details to simulate a Stripe payment.</p>
+                    
+                    <form class="demo-form" id="stripe-form">
+                        <div class="form-group">
+                            <label for="stripe-amount">Amount (USD)</label>
+                            <div class="amount-input">
+                                <input type="number" id="stripe-amount" class="form-control" placeholder="10" min="1" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="stripe-card">Card Number</label>
+                            <input type="text" id="stripe-card" class="form-control" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label for="stripe-expiry">Expiry Date</label>
+                                <input type="text" id="stripe-expiry" class="form-control" placeholder="MM/YY" required>
+                            </div>
+                            <div style="flex: 1;">
+                                <label for="stripe-cvc">CVC</label>
+                                <input type="text" id="stripe-cvc" class="form-control" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Process Stripe Payment</button>
+                        <div class="spinner" id="stripe-spinner"></div>
+                    </form>
+                    
+                    <div class="payment-status" id="stripe-status">
+                        <!-- Status message will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="integration-section">
+        <div class="container">
+            <h2 class="section-title">Easy Integration</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">Our payment solutions are designed for easy integration with your existing systems. Follow these simple steps to get started.</p>
+            
+            <div class="integration-steps">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Register & Get API Keys</h3>
+                    <p>Sign up with your preferred payment provider and obtain your API credentials.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Integrate with Our System</h3>
+                    <p>Use our well-documented APIs to integrate payment functionality into your application.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Test Your Integration</h3>
+                    <p>Use our sandbox environment to test payments before going live.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Go Live & Start Accepting Payments</h3>
+                    <p>Switch to production mode and start accepting real payments from your customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nyota Cyber</h3>
+                    <p>Your trusted partner for cyber services and electronics in Kenya. We're committed to providing reliable and affordable solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Cyber Services</a></li>
+                        <li><a href="index.html#electronics">Electronics Shop</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="#integration">Payment Integration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">M-Pesa Daraja</a></li>
+                        <li><a href="#">Flutterwave</a></li>
+                        <li><a href="#">PayPal</a></li>
+                        <li><a href="#">Stripe</a></li>
+                        <li><a href="#">Bank Transfer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Cyber Street, Nairobi</li>
+                        <li><i class="fas fa-phone"></i> +254 700 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@nyotacyber.co.ke</li>
+                        <li><i class="fab fa-whatsapp"></i> +254 700 123 456</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nyota Cyber. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const tryPaymentButtons = document.querySelectorAll('.try-payment');
+        const demoTabs = document.querySelectorAll('.demo-tab');
+        const demoContents = document.querySelectorAll('.demo-content');
+        const paymentForms = document.querySelectorAll('.demo-form');
+        const flutterwaveMethod = document.getElementById('flutterwave-method');
+        const flutterwavePhoneGroup = document.getElementById('flutterwave-phone-group');
+        const flutterwaveCardGroup = document.getElementById('flutterwave-card-group');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize event listeners
+            initEventListeners();
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+        });
+
+        // Initialize event listeners
+        function initEventListeners() {
+            // Hamburger menu toggle
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Try payment buttons
+            tryPaymentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const method = this.getAttribute('data-method');
+                    switchToDemo(method);
+                });
+            });
+
+            // Demo tab switching
+            demoTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const demoId = this.getAttribute('data-demo');
+                    switchToDemo(demoId);
+                });
+            });
+
+            // Flutterwave method change
+            flutterwaveMethod.addEventListener('change', function() {
+                const method = this.value;
+                flutterwavePhoneGroup.style.display = method === 'mpesa' || method === 'airtel' ? 'block' : 'none';
+                flutterwaveCardGroup.style.display = method === 'card' ? 'block' : 'none';
+            });
+
+            // Form submissions
+            paymentForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processPayment(this.id);
+                });
+            });
+        }
+
+        // Switch to demo tab
+        function switchToDemo(method) {
+            // Update tabs
+            demoTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('data-demo') === method) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Update content
+            demoContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${method}-demo`) {
+                    content.classList.add('active');
+                }
+            });
+
+            // Scroll to demo section
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Process payment
+        function processPayment(formId) {
+            const form = document.getElementById(formId);
+            const spinner = document.getElementById(`${formId.replace('-form', '')}-spinner`);
+            const status = document.getElementById(`${formId.replace('-form', '')}-status`);
+            
+            // Show loading spinner
+            spinner.style.display = 'block';
+            status.style.display = 'none';
+            
+            // Simulate API call
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                
+                // Generate random success (80% chance)
+                const isSuccess = Math.random() > 0.2;
+                
+                if (isSuccess) {
+                    status.className = 'payment-status status-success';
+                    status.innerHTML = `
+                        <div class="status-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Payment Successful!</h3>
+                        <p>Your payment has been processed successfully. Transaction ID: ${generateTransactionId()}</p>
+                        <p>You will receive a confirmation shortly.</p>
+                    `;
+                } else {
+                    status.className = 'payment-status status-error';
+                    status.innerHTML = `
+                        <div class="status-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>Payment Failed</h3>
+                        <p>We encountered an issue processing your payment. Please try again.</p>
+                        <p>If the problem persists, contact our support team.</p>
+                    `;
+                }
+                
+                status.style.display = 'block';
+                
+                // Scroll to status message
+                status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+        }
+
+        // Generate random transaction ID
+        function generateTransactionId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 10; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+    </script>
+</body>
+</html>
